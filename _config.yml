@@ -8,8 +8,8 @@ title: "Your Blog Title"
 subtitle: "Your Tagline"
 name: "Rosalind Skillen"
 description: "Your blog description"
-url: "https://yourusername.github.io"
-repository: "yourusername/yourusername.github.io"
+url: "https://rosalind.github.io"
+repository: "rskillen/rosalind.github.io"
 
 # Site Author
 author:
