@@ -1,0 +1,59 @@
+# Theme Settings
+remote_theme: "mmistakes/minimal-mistakes@4.24.0"
+minimal_mistakes_skin: "dark" # "default", "air", "aqua", "contrast", "dirt", "neon", "mint", "plum", "sunrise"
+
+# Site Settings
+locale: "en-US"
+title: "Your Blog Title"
+subtitle: "Your Tagline"
+name: "Rosalind Skillen"
+description: "Your blog description"
+url: "https://yourusername.github.io"
+repository: "yourusername/yourusername.github.io"
+
+# Site Author
+author:
+  name: "Rosalind Skillen"
+  avatar: "/assets/images/bio-photo"
+  bio: "Brief bio about yourself"
+  location: "Your Location"
+  links:
+    - label: "GitHub"
+      icon: "fab fa-fw fa-github"
+      url: "https://github.com/yourusername"
+    - label: "LinkedIn"
+      icon: "fab fa-fw fa-linkedin"
+      url: "https://linkedin.com/in/yourusername"
+
+# Site Footer
+footer:
+  links:
+    - label: "GitHub"
+      icon: "fab fa-fw fa-github"
+      url: "https://github.com/yourusername"
+
+# Defaults for posts
+defaults:
+  - scope:
+      path: ""
+      type: posts
+    values:
+      layout: single
+      author_profile: true
+      read_time: true
+      comments: true
+      share: true
+      related: true
+
+# Plugins
+plugins:
+  - jekyll-paginate
+  - jekyll-sitemap
+  - jekyll-gist
+  - jekyll-feed
+  - jemoji
+  - jekyll-include-cache
+
+# Pagination
+paginate: 5
+paginate_path: /page:num/ 
