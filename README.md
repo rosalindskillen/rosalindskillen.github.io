@@ -1,2 +1,2 @@
-# rosalind.github.io
+# rosalindskillen.github.io
 Personal Blog
