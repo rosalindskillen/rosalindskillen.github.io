@@ -1,32 +1,32 @@
-# Jekyll generated files
-_site/
-.sass-cache/
-.jekyll-cache/
-.jekyll-metadata
+# # Jekyll generated files
+# _site/
+# .sass-cache/
+# .jekyll-cache/
+# .jekyll-metadata
 
-# Ruby environment
-.bundle/
-vendor/
+# # Ruby environment
+# .bundle/
+# vendor/
 
-# OS generated files
-.DS_Store
-.DS_Store?
-._*
-.Spotlight-V100
-.Trashes
-ehthumbs.db
-Thumbs.db
+# # OS generated files
+# .DS_Store
+# .DS_Store?
+# ._*
+# .Spotlight-V100
+# .Trashes
+# ehthumbs.db
+# Thumbs.db
 
-# IDE files
-.idea/
-.vscode/
-*.swp
-*.swo
+# # IDE files
+# .idea/
+# .vscode/
+# *.swp
+# *.swo
 
-# Local development
-.env
-.env.*
-node_modules/
+# # Local development
+# .env
+# .env.*
+# node_modules/
 
-# Jekyll build logs
-*.log
+# # Jekyll build logs
+# *.log
