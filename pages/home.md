@@ -1,12 +1,12 @@
 ---
 layout: home
 permalink: "/"
-title: "Origin is a <strong>premium</strong> blog theme for Jekyll."
-description: "Hi I'm Robert, I create beautiful premium themes for Jekyll and the Jamstack. 🥃✨"
+title: "Journalist."
+description: "Hi I'm Rosalind, I am a journalist writing about the environment and rural affairs."
 image: "/assets/images/homepage.png"
 show_social_media_in_title: true
-meta_title: Jekyll Origin
-meta_description: "Jekyll Origin is a premium Jekyll blog theme"
+meta_title: Rosalind Skillen
+meta_description: "Hi I'm Rosalind, I am a journalist writing about the environment and rural affairs."
 
 posts:
   heading: ""
