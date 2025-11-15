@@ -1,13 +1,14 @@
 ---
 layout: post
-title: "Improving page speed"
+title: "Irish Farmers Journal"
 date: 2022-02-13T09:49:03Z
 authors: ["Jodi Harmon"]
 categories: ["Seo", "Development"]
-description: Faster website download speeds have been shown to increase visitor retention and loyalty and user satisfaction, especially for users with slow internet connections and those on mobile devices.
+description: "Reporting and features for the Irish Farmers Journal"
 thumbnail: "/assets/images/gen/blog/blog-18-thumbnail.webp"
 image: "/assets/images/gen/blog/blog-18.webp"
 comments: true
+custom_url: "https://www.google.com"
 
 meta_title: Improving page speed with Jekyll
 meta_description: Learn how to improve your Jekyll page speed with these practical tips for your blog.

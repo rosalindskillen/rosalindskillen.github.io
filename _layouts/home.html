@@ -67,7 +67,7 @@ body_classes: page-home
             authors=authors
             categories=categories
             date=card.date
-            url=card.url 
+            url=card.custom_url | default: card.url
             weight=card.weight
           %}
         </div>
