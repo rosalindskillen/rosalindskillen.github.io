@@ -4,7 +4,6 @@
 {% assign icon = include.icon %}
 {% assign fa_icon = include.fa_icon %}
 {% assign url = include.url %}
-{% assign date = include.date %}
 {% assign authors = include.authors %}
 {% assign categories = include.categories %}
 {% assign style = include.style | default: "column" %}
@@ -21,7 +20,7 @@
   {% endif %}
 
   <div class="card-content">
-    {% if authors or date %}
+    {% if authors %}
     <div class="card-meta">
 
       {% if authors %}
@@ -32,12 +31,9 @@
           {% include framework/author.html 
             name=author_object.name
             image=author_object.image
-            date=date
           %}
           {% endfor %}
         </div>
-      {% elsif date %}
-        <div class="card-date">{{ date | date_to_long_string }}</div>
       {% endif %}
 
     </div>  

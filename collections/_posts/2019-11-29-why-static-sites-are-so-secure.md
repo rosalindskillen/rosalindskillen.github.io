@@ -1,7 +1,6 @@
 ---
 layout: post
 title: "Security first with static websites"
-date: 2019-11-29
 authors: ["Sage Kirk", "Mike Vance"]
 categories: ["Hosting", "Development"]
 description: "Hosting your website as a static site will improve performance and improve security."

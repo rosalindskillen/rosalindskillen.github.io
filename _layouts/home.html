@@ -28,7 +28,7 @@ body_classes: page-home
   </div>
 </div>
 
-{% assign cards = site.posts | sort: 'date' | reverse %}
+{% assign cards = site.posts | sort: 'title' %}
 {% assign limit = page.posts.limit | default: 6 %}
 {% assign sort_by = page.posts.sort | default: 'date' %}
 {% assign columns =  page.posts.columns | default: 3 %}
@@ -71,7 +71,6 @@ body_classes: page-home
             image=card.image
             authors=authors
             categories=categories
-            date=card.date
             url=post_url
             weight=card.weight
           %}

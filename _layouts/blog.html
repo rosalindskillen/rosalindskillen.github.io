@@ -34,7 +34,6 @@ body_classes: page-blog
               {% for post in posts %}
                 <div class="col-12 col-lg-4 mb-3">
                   {% include theme/cards/card-post.html
-                    date=post.date
                     title=post.title
                     description=post.description 
                     thumbnail=post.thumbnail 

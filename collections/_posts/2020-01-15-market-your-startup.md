@@ -1,7 +1,6 @@
 ---
 layout: post
 title: "Learn how to market your next startup"
-date: 2020-01-15
 authors: ["Mike Vance"]
 categories: ["Branding"]
 description: Marketing a startup isn't easy, it takes a unique set of skills and a whole lot of determination

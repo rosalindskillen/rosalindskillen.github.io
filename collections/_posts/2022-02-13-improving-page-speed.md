@@ -1,7 +1,6 @@
 ---
 layout: post
 title: "Irish Farmers Journal"
-date: 2022-02-13T09:49:03Z
 categories: ["Seo", "Development"]
 description: "Reporting and features for the Irish Farmers Journal"
 thumbnail: "/assets/images/gen/blog/blog-18-thumbnail.webp"

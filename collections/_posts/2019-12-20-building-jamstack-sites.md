@@ -1,7 +1,6 @@
 ---
 layout: post
 title: "Building websites with the Jamstack"
-date: 2019-12-20
 categories: ["Development", "Web Design"]
 description: "Making sure your website runs fast and loads quickly is a fundamental part of the web design and seo process."
 thumbnail: "/assets/images/gen/blog/blog-7-thumbnail.webp"

@@ -1,7 +1,6 @@
 ---
 layout: post
 title: "Rosalind Skillen"
-date: 2018-09-13T05:22:42Z
 authors: ["Sage Kirk", "Mike Vance"]
 categories: ["Investigation", "Journalism"]
 description: "An overview of the work of investigative reporter Rosalind Skillen."

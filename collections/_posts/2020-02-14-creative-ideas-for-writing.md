@@ -1,7 +1,6 @@
 ---
 layout: post
 title: "Creative ideas to improve your writing"
-date: 2020-02-14
 authors: ["Mike Vance"]
 categories: ["Branding"]
 description: Marketing a startup isn't easy, it takes a unique set of skills and a whole lot of determination

@@ -1,7 +1,6 @@
 ---
 layout: post
 title: "The most important analytics metrics for new business"
-date: 2021-02-27
 authors: ["alec_mendez"]
 categories: ["Development", "Web Design"]
 description: "Making sure your website runs fast and loads quickly is a fundamental part of the web design and seo process."

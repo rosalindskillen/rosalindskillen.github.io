@@ -1,7 +1,6 @@
 ---
 layout: post
 title: "Using liquid templates"
-date: 2020-08-09
 authors: ["Mike Vance"]
 categories: ["Branding"]
 description: Branding is an intrinsic part of your companies success, learn why your brand matters.

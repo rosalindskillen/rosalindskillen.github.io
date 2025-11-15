@@ -1,7 +1,6 @@
 ---
 layout: post
 title: "Writing With Markdown"
-date: 2019-02-03T13:06:00Z
 authors: ["Sage Kirk"]
 categories: ["Development", "Javascript"]
 description: Learn how to use Markdown to write blog posts. Understand front-matter and how it is used in templates.

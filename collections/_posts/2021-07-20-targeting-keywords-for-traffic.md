@@ -1,7 +1,6 @@
 ---
 layout: post
 title: "Targeting keywords to generate SEO traffic"
-date: 2021-07-20
 authors: ["jodi_harmon"]
 categories: ["Seo", "Web Design"]
 description: Design systems are an important part of modern web development. Learn the best practices to scale your new design system.

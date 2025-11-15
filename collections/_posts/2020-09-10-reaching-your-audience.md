@@ -1,7 +1,6 @@
 ---
 layout: post
 title: "Reaching your audience with the right content strategy"
-date: 2020-09-10
 authors: ["Mike Vance"]
 categories: ["Branding"]
 description: Branding is an intrinsic part of your companies success, learn why your brand matters.
