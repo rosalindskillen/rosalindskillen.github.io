@@ -42,9 +42,7 @@ main:
   - name: Contact
     url: /contact/
     weight: 4
-  - name: Buy Theme
-    url: https://www.zerostatic.io/theme/jekyll-origin/
-    weight: 5
+
 footer_primary:
   - name: Blog
     url: /posts/
