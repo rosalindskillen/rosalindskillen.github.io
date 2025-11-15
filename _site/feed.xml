@@ -5,12 +5,12 @@
     <description></description>
     <link>http://localhost:4000/</link>
     <atom:link href="http://localhost:4000/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Sun, 04 May 2025 23:16:59 +0100</pubDate>
-    <lastBuildDate>Sun, 04 May 2025 23:16:59 +0100</lastBuildDate>
+    <pubDate>Sat, 15 Nov 2025 18:52:45 +0000</pubDate>
+    <lastBuildDate>Sat, 15 Nov 2025 18:52:45 +0000</lastBuildDate>
     <generator>Jekyll v4.3.2</generator>
     
       <item>
-        <title>Improving page speed</title>
+        <title>Irish Farmers Journal</title>
         <description>&lt;p&gt;Markdown is a lightweight markup language with plain-text-formatting syntax. Its design allows it to be converted to many output formats, but the original tool by the same name only supports HTML. Markdown is often used to format readme files, for writing messages in online discussion forums, and to create rich text using a plain text editor.&lt;/p&gt;
 
 &lt;p&gt;Since the initial description of Markdown contained ambiguities and unanswered questions, the implementations that appeared over the years have subtle differences and many come with syntax extensions.&lt;/p&gt;
@@ -77,7 +77,7 @@
   &lt;li&gt;abbreviations&lt;/li&gt;
 &lt;/ul&gt;
 </description>
-        <pubDate>Sun, 13 Feb 2022 09:49:03 +0000</pubDate>
+        <pubDate>Sun, 13 Feb 2022 00:00:00 +0000</pubDate>
         <link>http://localhost:4000/blog/2022-02-13-improving-page-speed/</link>
         <guid isPermaLink="true">http://localhost:4000/blog/2022-02-13-improving-page-speed/</guid>
         
@@ -163,7 +163,7 @@
   &lt;li&gt;abbreviations&lt;/li&gt;
 &lt;/ul&gt;
 </description>
-        <pubDate>Fri, 11 Feb 2022 16:49:03 +0000</pubDate>
+        <pubDate>Thu, 10 Feb 2022 00:00:00 +0000</pubDate>
         <link>http://localhost:4000/blog/2022-02-10-ideas-to-help-business-grow/</link>
         <guid isPermaLink="true">http://localhost:4000/blog/2022-02-10-ideas-to-help-business-grow/</guid>
         
