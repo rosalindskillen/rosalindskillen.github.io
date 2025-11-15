@@ -1,7 +1,6 @@
 ---
 layout: post-2
 title: "Building design systems that scale"
-authors: ["shyam_wolf"]
 categories: ["Design", "Product"]
 description: Design systems are an important part of modern web development. Learn the best practices to scale your new design system.
 thumbnail: "/assets/images/gen/blog/blog-20-thumbnail.webp"

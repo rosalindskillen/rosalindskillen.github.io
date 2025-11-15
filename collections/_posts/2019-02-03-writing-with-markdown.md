@@ -1,7 +1,6 @@
 ---
 layout: post
 title: "Writing With Markdown"
-authors: ["Sage Kirk"]
 categories: ["Development", "Javascript"]
 description: Learn how to use Markdown to write blog posts. Understand front-matter and how it is used in templates.
 thumbnail: "/assets/images/gen/blog/blog-4-thumbnail.webp"

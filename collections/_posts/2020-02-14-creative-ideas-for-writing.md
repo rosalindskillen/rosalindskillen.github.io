@@ -1,7 +1,6 @@
 ---
 layout: post
 title: "Creative ideas to improve your writing"
-authors: ["Mike Vance"]
 categories: ["Branding"]
 description: Marketing a startup isn't easy, it takes a unique set of skills and a whole lot of determination
 thumbnail: "/assets/images/gen/blog/blog-9-thumbnail.webp"

@@ -1,7 +1,6 @@
 ---
 layout: post
 title: "Designing Your Brand"
-authors: ["Mike Vance"]
 tags: ["Tutorials", "Premimum"]
 categories: ["Branding"]
 description: Branding is an intrinsic part of your companies success, learn why your brand matters.

@@ -1,7 +1,6 @@
 ---
 layout: post
 title: "Reaching your audience with the right content strategy"
-authors: ["Mike Vance"]
 categories: ["Branding"]
 description: Branding is an intrinsic part of your companies success, learn why your brand matters.
 thumbnail: "/assets/images/gen/blog/blog-3-thumbnail.webp"

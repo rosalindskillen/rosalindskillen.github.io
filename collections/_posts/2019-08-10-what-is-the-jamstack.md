@@ -1,7 +1,6 @@
 ---
 layout: post
 title: "What is the Jamstack?"
-authors: ["Mike Vance"]
 categories: ["Branding"]
 description: Branding is an intrinsic part of your companies success, learn why your brand matters.
 thumbnail: "/assets/images/gen/blog/blog-5-thumbnail.webp"

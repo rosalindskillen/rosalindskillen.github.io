@@ -1,7 +1,6 @@
 ---
 layout: post
 title: "Rosalind Skillen"
-authors: ["Sage Kirk", "Mike Vance"]
 categories: ["Investigation", "Journalism"]
 description: "An overview of the work of investigative reporter Rosalind Skillen."
 thumbnail: "/assets/images/gen/blog/blog-1-thumbnail.webp"
