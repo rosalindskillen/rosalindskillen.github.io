@@ -58,6 +58,11 @@ body_classes: page-home
           {% assign authors = card.authors %}
         {% endif %}
 
+        {% if card.custom_url %}
+          {% assign post_url = card.custom_url %}
+        {% else %}
+          {% assign post_url = card.url %}
+        {% endif %}
         <div class="col-12 col-md-4 {{ columns }}{% if forloop.first %}mt-0{% endif %} {% if forloop.last %}mb-0{% endif %} mb-3 mb-md-6">
           {% include theme/cards/card-post.html 
             title=card.title 
@@ -67,7 +72,7 @@ body_classes: page-home
             authors=authors
             categories=categories
             date=card.date
-            url=card.custom_url | default: card.url
+            url=post_url
             weight=card.weight
           %}
         </div>
