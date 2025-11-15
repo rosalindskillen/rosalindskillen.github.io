@@ -174,7 +174,7 @@ footer:
   footer_tertiary_menu_title: "Menu 3"
 
 bottom:
-  enable_bottom: true # show/hide the entire bottom (below the footer)
-  enable_bottom_menu: true # if enabled, the bottom menu can be edited in `_data/menu.yml`
-  copyright_text: "© 2023 Zerostatic Themes"
+  enable_bottom: false # show/hide the entire bottom (below the footer)
+  enable_bottom_menu: false # if enabled, the bottom menu can be edited in `_data/menu.yml`
+  copyright_text: ""
   show_rss_icon: true
