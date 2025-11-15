@@ -1,8 +1,8 @@
 ---
 layout: home
 permalink: "/"
-title: "Journalist."
-description: "Hi I'm Rosalind, I am a journalist writing about the environment and rural affairs."
+title: "Award-Nominated Journalist."
+description: "Belfast-born journalist based in Dublin. Shortlisted as Features Journalist of the Year and Young Journalist of the Year in Irish Journalism Awards 2025."
 image: "/assets/images/homepage.png"
 show_social_media_in_title: true
 meta_title: Rosalind Skillen

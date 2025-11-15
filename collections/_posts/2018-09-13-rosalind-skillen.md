@@ -11,12 +11,12 @@ Rosalind Skillen is an investigative reporter. Her work has been published in Th
 
 Her reporting covers a wide range of topics, including:
 
-*   Business
-*   Courts
-*   Criminal Justice
-*   Environment
-*   Health
-*   Policing
-*   Politics
+* Business
+* Courts
+* Criminal Justice
+* Environment
+* Health
+* Policing
+* Politics
 
 Skillen's work provides in-depth analysis and investigation into critical issues in Northern Ireland.
