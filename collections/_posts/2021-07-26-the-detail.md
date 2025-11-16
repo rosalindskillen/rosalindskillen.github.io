@@ -1,9 +1,9 @@
 ---
 layout: post
-title: "Belfast Telegraph"
+title: "The Detail"
 categories: ["Branding", "Marketing"]
-description: "Articles and columns for Belfast Telegraph"
+description: "Articles and columns for The Detail"
 thumbnail: "/assets/images/gen/blog/bt.jpg"
 image: "/assets/images/gen/blog/bt.jpg"
-custom_url: "https://www.belfasttelegraph.co.uk/tag/rosalind-skillen"
+custom_url: "https://thedetail.tv/reporters/rosalind-skillen"
 ---
