@@ -3,8 +3,8 @@ layout: post
 title: "Rosalind Skillen"
 categories: ["Investigation", "Journalism"]
 description: "An overview of the work of investigative reporter Rosalind Skillen."
-thumbnail: "/assets/images/gen/blog/blog-1-thumbnail.webp"
-image: "/assets/images/gen/blog/blog-1.webp"
+thumbnail: "/assets/images/gen/blog/r_skillen.jpeg"
+image: "/assets/images/gen/blog/r_skillen.jpeg"
 ---
 
 Rosalind Skillen is an investigative reporter. Her work has been published in The Detail, a Northern Ireland-based news and analysis website.
