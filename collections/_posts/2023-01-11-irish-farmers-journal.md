@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Irish Farmers Journal"
-categories: ["Seo", "Development"]
+categories: ["Journalism", "Health", "Lifestyle"]
 description: "Reporting and features for the Irish Farmers Journal"
 thumbnail: "/assets/images/gen/blog/ifj.jpg"
 image: "/assets/images/gen/blog/ifj.jpg"
