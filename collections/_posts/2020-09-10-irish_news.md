@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Irish News"
-categories: ["Branding", "Marketing"]
+categories: ["Environment", "Politics", "Conservation"]
 description: "Columns for Irish News"
 thumbnail: "/assets/images/gen/blog/irish_news.jpg"
 image: "/assets/images/gen/blog/irish_news.jpg"

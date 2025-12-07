@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "The Sunday Times"
-categories: ["Branding", "Marketing"]
+categories: ["Sustainability", "Community", "Conservation"]
 description: "Reporting for The Sunday Times"
 thumbnail: "/assets/images/gen/blog/sunday.jpg"
 image: "/assets/images/gen/blog/sunday.jpg"

@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Rosalind Skillen"
-categories: ["Investigation", "Journalism"]
+categories: ["Investigation", "Journalism", "Reporting"]
 description: "An overview of the work of investigative reporter Rosalind Skillen."
 thumbnail: "/assets/images/gen/blog/r_skillen.jpeg"
 image: "/assets/images/gen/blog/r_skillen.jpeg"
