@@ -152,9 +152,9 @@ newsletter:
     form_title: "Stay In Touch"
 
 contact_form: 
-  use_netlify_form: true
-  use_formspree_form: false
-  formspree_endpoint: https://formspree.io/f/moqyklqv
+  use_netlify_form: false
+  use_formspree_form: true
+  formspree_endpoint: https://formspree.io/f/xldqwdqb
   netlify_form_name: "contact"
 
 menu: 
