@@ -14,67 +14,61 @@ This report analyzes the images found in the website directory, their usage, and
   - **Usage:** Used in `_includes/framework/favicon.html`, which is included in all pages.
   - **Suggested Name:** `favicon.png` (already a good name)
 
-- [ ] ### `/assets/images/gen/content/about.jpeg`
+- [x] ### `/assets/images/gen/content/rosalind-skillen-about-me.jpeg`
   - **Description:** Image for the "About Me" page.
   - **Usage:** Used in `pages/about.md`.
-  - **Suggested Name:** `rosalind-skillen-about-me.jpeg` (more descriptive)
+  - **Status:** Renamed as suggested.
 
-- [ ] ### `/assets/images/gen/blog/podcast.jpg`
+- [x] ### `/assets/images/gen/blog/podcast-thumbnail.jpg`
   - **Description:** Thumbnail for a podcast blog post.
   - **Usage:** Used in `collections/_posts/2024-01-01-podcast.md`.
-  - **Suggested Name:** `podcast-thumbnail.jpg`
+  - **Status:** Renamed as suggested.
 
-- [ ] ### `/assets/images/gen/blog/bbc.jpg`
+- [x] ### `/assets/images/gen/blog/bbc-young-climate-reporter.jpg`
   - **Description:** Thumbnail for a blog post about the BBC.
   - **Usage:** Used in `collections/_posts/2021-07-20-bbc.md`.
-  - **Suggested Name:** `bbc-young-climate-reporter.jpg`
+  - **Status:** Renamed as suggested.
 
-- [ ] ### `/assets/images/gen/blog/the_det.jpg`
+- [x] ### `/assets/images/gen/blog/the-detail-article-thumbnail.jpg`
   - **Description:** Thumbnail for a blog post about The Detail.
   - **Usage:** Used in `collections/_posts/2021-07-26-the-detail.md`.
-  - **Suggested Name:** `the-detail-article-thumbnail.jpg`
+  - **Status:** Renamed as suggested.
 
-- [ ] ### `/assets/images/gen/blog/sunday.jpg`
+- [x] ### `/assets/images/gen/blog/sunday-times-article-thumbnail.jpg`
   - **Description:** Thumbnail for a blog post about The Sunday Times.
   - **Usage:** Used in `collections/_posts/2021-07-23-sunday-times.md`.
-  - **Suggested Name:** `sunday-times-article-thumbnail.jpg`
+  - **Status:** Renamed as suggested.
 
-- [ ] ### `/assets/images/gen/blog/irish_news.jpg`
+- [x] ### `/assets/images/gen/blog/irish-news-article-thumbnail.jpg`
   - **Description:** Thumbnail for a blog post about The Irish News.
   - **Usage:** Used in `collections/_posts/2020-09-10-irish_news.md`.
-  - **Suggested Name:** `irish-news-article-thumbnail.jpg`
+  - **Status:** Renamed as suggested.
 
-- [ ] ### `/assets/images/gen/blog/currency.jpg`
+- [x] ### `/assets/images/gen/blog/the-currency-article-thumbnail.jpg`
   - **Description:** Thumbnail for a blog post about The Currency.
   - **Usage:** Used in `collections/_posts/2021-02-27-currency.md`.
-  - **Suggested Name:** `the-currency-article-thumbnail.jpg`
+  - **Status:** Renamed as suggested.
 
-- [ ] ### `/assets/images/gen/blog/bt.jpg`
+- [x] ### `/assets/images/gen/blog/belfast-telegraph-article-thumbnail.jpg`
   - **Description:** Thumbnail for a blog post about the Belfast Telegraph.
   - **Usage:** Used in `collections/_posts/2022-02-10-bel-tel.md`.
-  - **Suggested Name:** `belfast-telegraph-article-thumbnail.jpg`
+  - **Status:** Renamed as suggested.
 
-- [ ] ### `/assets/images/gen/blog/r_skillen.jpeg`
+- [x] ### `/assets/images/gen/blog/rosalind-skillen-portrait.jpeg`
   - **Description:** A picture of Rosalind Skillen.
   - **Usage:** Used in `collections/_posts/2018-09-13-rosalind-skillen.md`.
-  - **Suggested Name:** `rosalind-skillen-portrait.jpeg`
+  - **Status:** Renamed as suggested.
 
-- [ ] ### `/assets/images/gen/blog/ifj.jpg`
+- [x] ### `/assets/images/gen/blog/irish-farmers-journal-article-thumbnail.jpg`
   - **Description:** Thumbnail for a blog post about the Irish Farmers Journal.
   - **Usage:** Used in `collections/_posts/2023-01-11-irish-farmers-journal.md`.
-  - **Suggested Name:** `irish-farmers-journal-article-thumbnail.jpg`
+  - **Status:** Renamed as suggested.
 
 
 ## Unlinked Images
 
 The following images were found in the directory but are not referenced in any of the website's files. They may be unused and could be removed to save space.
 
-- [ ] **`/assets/images/homepage_1.png`**
-  - **Suggested Name:** If used, `homepage-secondary-image-1.png`
-- [ ] **`/assets/images/homepage_2.png`**
-  - **Suggested Name:** If used, `homepage-secondary-image-2.png`
-- [ ] **`/assets/images/homepage_3.png`**
-  - **Suggested Name:** If used, `homepage-secondary-image-3.png`
 - [ ] **`/assets/images/gen/blog/irish_news.jpeg`**
   - **Suggested Name:** This seems to be a duplicate of `irish_news.jpg`. If it's a different image, `irish-news-article-thumbnail-2.jpeg`
 - [ ] **`/assets/images/gen/blog/sunday.png`**

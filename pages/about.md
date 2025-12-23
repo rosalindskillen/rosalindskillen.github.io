@@ -4,7 +4,7 @@ title: "About Me"
 date: 2018-11-28T15:15:34+10:00
 permalink: "/about/"
 description: "Let me introduce myself"
-image: "/assets/images/gen/content/about.jpeg"
+image: "/assets/images/gen/content/rosalind-skillen-about-me.jpeg"
 ---
 
 ## Background
