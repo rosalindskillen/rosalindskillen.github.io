@@ -21,6 +21,9 @@ collections:
   posts:
     output: true
     permalink: /blog/:path/
+  media:
+    output: true
+    permalink: /media/:path/
 
 # Pages
 defaults:
