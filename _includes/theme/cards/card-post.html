@@ -11,11 +11,19 @@
 {% assign client = include.client %}
 {% assign thumbnail_size = include.thumbnail_size %}
 
-<div class="card card-post card-{{ style }} {% if thumbnail %}card-has-thumbnail{% endif %} {% if icon or fa_icon %}card-has-icon{% endif %}">
+{% assign youtube_id = include.youtube_id %}
+
+<div class="card card-post card-{{ style }} {% if thumbnail or youtube_id %}card-has-thumbnail{% endif %} {% if icon or fa_icon %}card-has-icon{% endif %}">
 
   {% if thumbnail %}
     <div class="card-thumbnail {% if thumbnail_size %}card-thumbnail-{{ thumbnail_size }}{% endif %}">
       <a href="{{ url | relative_url }}"><img alt="{{ title }}" src="{{ thumbnail | relative_url }}"/></a>
+    </div>
+  {% elsif youtube_id %}
+    <div class="card-thumbnail {% if thumbnail_size %}card-thumbnail-{{ thumbnail_size }}{% endif %}">
+      <div class="video-container">
+        <iframe width="560" height="315" src="https://www.youtube.com/embed/{{ youtube_id }}" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+      </div>
     </div>
   {% endif %}
 
