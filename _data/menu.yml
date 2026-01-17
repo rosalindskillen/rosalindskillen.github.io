@@ -4,6 +4,9 @@ main:
     weight: 1
   - name: About
     url: /about/
+    weight: 2
+  - name: Media
+    url: /media/
     weight: 3
   - name: Contact
     url: /contact/
