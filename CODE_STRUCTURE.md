@@ -43,3 +43,14 @@ Here are the basic instructions for editing the website's content and appearance
 ### Changing Layouts
 
 *   To alter the structure of a page, modify the HTML files in the `_layouts/` directory or the components in the `_includes/framework/` directory.
+
+### Blog Rendering
+
+The blog page, accessible at `/blog/`, is rendered through a combination of files that work together to display a paginated list of posts.
+
+| Path                  | Description                                                                                                                                                             |
+| :-------------------- | :---------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `blog/index.html`     | The main entry point for the `/blog/` URL. This file uses the `blog` layout to structure its content.                                                                     |
+| `_layouts/blog.html`  | Defines the overall structure of the blog page. It iterates through the posts available in `site.posts` and includes `theme/cards/card-post.html` for each post.         |
+| `theme/cards/card-post.html` | A reusable component that formats and displays the individual blog post previews on the blog page, including the title, description, and thumbnail.                  |
+| `collections/_posts/` | Contains the individual blog posts as Markdown files. The content from these files is used to populate the blog page.                                                       |
