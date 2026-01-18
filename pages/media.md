@@ -1,5 +1,5 @@
 ---
-layout: media
+layout: media-3
 title: "Media Appearances"
 date: 2024-01-17T00:00:00+00:00
 permalink: "/media/"
