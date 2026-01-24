@@ -4,4 +4,5 @@ description: Contributed to Ireland AM discussion on why the Christmas dinner is
 date: 2025-12-08
 outlet: 'Virgin Media'
 thumbnail: "/assets/images/gen/media/ireland_am.jpg"
+link: "https://youtu.be/iq52zCD56lw?t=2s"
 ---
