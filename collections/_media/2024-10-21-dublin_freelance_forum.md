@@ -4,5 +4,5 @@ description: "Contributed to a panel discussion on climate change reporting, alo
 date: 2024-10-21
 outlet: Dublin Freelance Forum 
 link: "https://dublinfreelance.org/faqs/freelance-forum-2024-podcast-series/"
-thumbnail: "/assets/images/gen/media/rte_2fm.jpg"
+thumbnail: "/assets/images/gen/media/freelance.jpg"
 ---
