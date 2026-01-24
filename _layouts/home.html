@@ -28,6 +28,7 @@ body_classes: page-home
   </div>
 </div>
 
+{% comment %}
 <div class="section">
   <div class="container">
     <div class="row">
@@ -39,6 +40,7 @@ body_classes: page-home
     </div>
   </div>
 </div>
+{% endcomment %}
 
 {% assign cards = site.posts | sort: 'title' %}
 {% assign limit = page.posts.limit | default: 6 %}
