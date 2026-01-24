@@ -4,5 +4,5 @@ description: "Delivered a keynote at the 'Greening the Narrative' conference, al
 date: 2023-05-31
 outlet: Green Foundation Ireland
 link: "https://www.youtube.com/watch?v=VBBLWBhE_Tw"
-thumbnail: "/assets/images/gen/blog/bbc-young-climate-reporter.jpg"
+thumbnail: "/assets/images/gen/blog/rte_2fm.jpg"
 ---
