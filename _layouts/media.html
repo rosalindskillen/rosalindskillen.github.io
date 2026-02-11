@@ -19,14 +19,24 @@ body_classes: page-media
 
 <div class="section pt-0">
   <div class="container">
-    <div class="media-grid">
-      {% for item in site.data.media %}
-        {% include theme/cards/card-media-group.html
-          broadcaster=item.broadcaster
-          logo=item.logo
-          appearances=item.appearances
-        %}
-      {% endfor %}
+    <div class="row justify-content-center">
+      <div class="col-12 col-md-12">
+        <div class="row">
+          {% assign media_items = site.media | sort: "date" | reverse %}
+          {% for item in media_items %}
+          <div class="col-12 col-lg-9 mb-5">
+            {% include theme/cards/card-post.html
+              title=item.title
+              description=item.outlet
+              thumbnail=item.thumbnail
+              youtube_id=item.youtube_id
+              url=item.link
+              style="row"
+            %}
+          </div>
+          {% endfor %}
+        </div>
+      </div>
     </div>
   </div>
 </div>
