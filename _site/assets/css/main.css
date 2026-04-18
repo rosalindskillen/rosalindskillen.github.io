@@ -25919,12 +25919,44 @@ html[data-bs-theme=dark] .menu-main ul li.menu-item-dropdown .dropdown-menu .dro
   width: 100%;
   background: #111;
 }
+.card-post .card-thumbnail.card-thumbnail-audio {
+  display: block;
+  width: 100%;
+  background: #111;
+}
 .card-post .card-thumbnail.card-thumbnail-rte .video-container {
   width: 100%;
   max-width: none;
 }
+.card-post .card-thumbnail.card-thumbnail-audio audio {
+  display: block;
+  width: 100%;
+}
 .card-post .card-thumbnail .rte-lazy-player {
   width: 100%;
+}
+.card-post .card-thumbnail .audio-lazy-player {
+  width: 100%;
+}
+.card-post .card-thumbnail .audio-player-active {
+  position: relative;
+  width: 100%;
+}
+.card-post .card-thumbnail .audio-player-active img {
+  aspect-ratio: 16/9;
+  display: block;
+  object-fit: contain;
+  width: 100%;
+}
+.card-post .card-thumbnail .audio-player-active audio {
+  background: rgba(17, 17, 17, 0.72);
+  border-radius: var(--button-border-radius);
+  bottom: 14px;
+  left: 50%;
+  max-width: calc(100% - 28px);
+  position: absolute;
+  transform: translateX(-50%);
+  width: 92%;
 }
 .card-post .card-thumbnail .rte-lazy-button {
   appearance: none;

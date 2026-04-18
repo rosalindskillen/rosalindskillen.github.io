@@ -15,8 +15,11 @@
 {% assign rte_clip_id = include.rte_clip_id %}
 {% assign rte_start_seconds = include.rte_start_seconds | default: 0 %}
 {% assign rte_start_label = include.rte_start_label %}
+{% assign audio_src = include.audio_src %}
+{% assign audio_start_seconds = include.audio_start_seconds | default: 0 %}
+{% assign audio_start_label = include.audio_start_label %}
 
-<div class="card card-post card-{{ style }} {% if thumbnail or youtube_id or rte_clip_id %}card-has-thumbnail{% endif %} {% if icon or fa_icon %}card-has-icon{% endif %}">
+<div class="card card-post card-{{ style }} {% if thumbnail or youtube_id or rte_clip_id or audio_src %}card-has-thumbnail{% endif %} {% if icon or fa_icon %}card-has-icon{% endif %}">
 
   {% if rte_clip_id %}
     {% assign rte_player_id = "rte-player-" | append: rte_clip_id | append: "-" | append: include.date | slugify %}
@@ -91,6 +94,71 @@
         })();
       </script>
     {% endif %}
+  {% elsif audio_src %}
+    {% assign audio_lazy_id = "audio-lazy-" | append: include.date | append: "-" | append: title | slugify %}
+    <div class="card-thumbnail card-thumbnail-audio {% if thumbnail_size %}card-thumbnail-{{ thumbnail_size }}{% endif %}">
+      <div
+        id="{{ audio_lazy_id }}"
+        class="audio-lazy-player"
+        data-audio-src="{{ audio_src | escape }}"
+        data-start-seconds="{{ audio_start_seconds }}"
+        data-title="{{ title | escape }}"
+      >
+        <button class="audio-lazy-button rte-lazy-button" type="button">
+          {% if thumbnail %}
+            <img alt="{{ title }}" src="{{ thumbnail | relative_url }}"/>
+          {% endif %}
+          <span>Play clip{% if audio_start_label %} from {{ audio_start_label }}{% endif %}</span>
+        </button>
+      </div>
+    </div>
+    <script>
+      (function () {
+        const container = document.getElementById("{{ audio_lazy_id }}");
+
+        if (!container) {
+          return;
+        }
+
+        const button = container.querySelector(".audio-lazy-button");
+
+        if (!button) {
+          return;
+        }
+
+        button.addEventListener("click", function () {
+          const startAtSeconds = Number(container.dataset.startSeconds || 0);
+          const source = container.dataset.audioSrc;
+          const title = container.dataset.title || "Audio clip";
+          const thumbnail = button.querySelector("img");
+          const playerWrap = document.createElement("div");
+          const player = document.createElement("audio");
+
+          playerWrap.className = "audio-player-active";
+          if (thumbnail) {
+            playerWrap.appendChild(thumbnail.cloneNode(true));
+          }
+
+          player.controls = true;
+          player.preload = "metadata";
+          player.src = source + (startAtSeconds ? "#t=" + startAtSeconds : "");
+          player.setAttribute("aria-label", title);
+
+          playerWrap.appendChild(player);
+          container.replaceChildren(playerWrap);
+          player.addEventListener("loadedmetadata", function () {
+            if (startAtSeconds) {
+              player.currentTime = startAtSeconds;
+            }
+          }, { once: true });
+          player.play().catch(function () {
+            if (startAtSeconds) {
+              player.currentTime = startAtSeconds;
+            }
+          });
+        });
+      })();
+    </script>
   {% elsif thumbnail %}
     <div class="card-thumbnail {% if thumbnail_size %}card-thumbnail-{{ thumbnail_size }}{% endif %}">
       <a href="{{ url | relative_url }}"><img alt="{{ title }}" src="{{ thumbnail | relative_url }}"/></a>

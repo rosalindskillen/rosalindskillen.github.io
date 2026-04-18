@@ -468,6 +468,9 @@
 
 
 
+
+
+
 <div class="card card-post card-full card-has-thumbnail ">
 
   
@@ -574,6 +577,9 @@
               
               <div class="col-12 col-md-6 mb-3 mb-md-6 mb-lg-12">
                 
+
+
+
 
 
 
@@ -714,12 +720,76 @@
 
 
 
+
+
+
 <div class="card card-post card-full card-has-thumbnail ">
 
   
-    <div class="card-thumbnail ">
-      <a href="https://www.beat102103.com/podcasts/the-sunday-grill/alpacas-friend-dating-the-kitchen-edit-sunday-grill-january-18-2026-2226304"><img alt="Beat 102 103" src="/assets/images/gen/media/beat.jpg"/></a>
+    
+    <div class="card-thumbnail card-thumbnail-audio ">
+      <div
+        id="audio-lazy-2026-01-18-00-00-00-0000-beat-102-103"
+        class="audio-lazy-player"
+        data-audio-src="https://bauernordic-pods.sharp-stream.com/ie/2856/sg_jan_18_2026_e0fb1aa9_normal.mp3?aw_0_1st.episodeid=354347&amp;aw_0_1st.collectionid=2856"
+        data-start-seconds="1508"
+        data-title="Beat 102 103"
+      >
+        <button class="audio-lazy-button rte-lazy-button" type="button">
+          
+            <img alt="Beat 102 103" src="/assets/images/gen/media/beat.jpg"/>
+          
+          <span>Play clip from 25:08</span>
+        </button>
+      </div>
     </div>
+    <script>
+      (function () {
+        const container = document.getElementById("audio-lazy-2026-01-18-00-00-00-0000-beat-102-103");
+
+        if (!container) {
+          return;
+        }
+
+        const button = container.querySelector(".audio-lazy-button");
+
+        if (!button) {
+          return;
+        }
+
+        button.addEventListener("click", function () {
+          const startAtSeconds = Number(container.dataset.startSeconds || 0);
+          const source = container.dataset.audioSrc;
+          const title = container.dataset.title || "Audio clip";
+          const thumbnail = button.querySelector("img");
+          const playerWrap = document.createElement("div");
+          const player = document.createElement("audio");
+
+          playerWrap.className = "audio-player-active";
+          if (thumbnail) {
+            playerWrap.appendChild(thumbnail.cloneNode(true));
+          }
+
+          player.controls = true;
+          player.preload = "metadata";
+          player.src = source + (startAtSeconds ? "#t=" + startAtSeconds : "");
+          player.setAttribute("aria-label", title);
+
+          playerWrap.appendChild(player);
+          container.replaceChildren(playerWrap);
+          player.addEventListener("loadedmetadata", function () {
+            if (startAtSeconds) {
+              player.currentTime = startAtSeconds;
+            }
+          }, { once: true });
+          player.play().catch(function () {
+            if (startAtSeconds) {
+              player.currentTime = startAtSeconds;
+            }
+          });
+        });
+      })();
+    </script>
   
 
   <div class="card-content">
@@ -751,6 +821,9 @@
               
               <div class="col-12 col-md-6 mb-3 mb-md-6 mb-lg-12">
                 
+
+
+
 
 
 
@@ -822,6 +895,9 @@
 
 
 
+
+
+
 <div class="card card-post card-full card-has-thumbnail ">
 
   
@@ -859,6 +935,9 @@
               
               <div class="col-12 col-md-6 mb-3 mb-md-6 mb-lg-12">
                 
+
+
+
 
 
 
@@ -930,6 +1009,9 @@
 
 
 
+
+
+
 <div class="card card-post card-full card-has-thumbnail ">
 
   
@@ -967,6 +1049,9 @@
               
               <div class="col-12 col-md-6 mb-3 mb-md-6 mb-lg-12">
                 
+
+
+
 
 
 
@@ -1038,6 +1123,9 @@
 
 
 
+
+
+
 <div class="card card-post card-full card-has-thumbnail ">
 
   
@@ -1075,6 +1163,9 @@
               
               <div class="col-12 col-md-6 mb-3 mb-md-6 mb-lg-12">
                 
+
+
+
 
 
 
@@ -1146,6 +1237,9 @@
 
 
 
+
+
+
 <div class="card card-post card-full card-has-thumbnail ">
 
   
@@ -1183,6 +1277,9 @@
               
               <div class="col-12 col-md-6 mb-3 mb-md-6 mb-lg-12">
                 
+
+
+
 
 
 
