@@ -24,13 +24,18 @@ body_classes: page-media
         <div class="row">
           {% assign media_items = site.media | sort: "date" | reverse %}
           {% for item in media_items %}
+          {% assign item_url = item.link %}
           <div class="col-12 col-lg-9 mb-5">
             {% include theme/cards/card-post.html
               title=item.title
               description=item.outlet
               thumbnail=item.thumbnail
               youtube_id=item.youtube_id
-              url=item.link
+              url=item_url
+              rte_clip_id=item.rte_clip_id
+              rte_start_seconds=item.rte_start_seconds
+              rte_start_label=item.rte_start_label
+              date=item.date
               style="row"
             %}
           </div>

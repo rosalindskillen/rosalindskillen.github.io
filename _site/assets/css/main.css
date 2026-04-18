@@ -25914,6 +25914,58 @@ html[data-bs-theme=dark] .menu-main ul li.menu-item-dropdown .dropdown-menu .dro
   overflow: hidden;
   display: inline-flex;
 }
+.card-post .card-thumbnail.card-thumbnail-rte {
+  display: block;
+  width: 100%;
+  background: #111;
+}
+.card-post .card-thumbnail.card-thumbnail-rte .video-container {
+  width: 100%;
+  max-width: none;
+}
+.card-post .card-thumbnail .rte-lazy-player {
+  width: 100%;
+}
+.card-post .card-thumbnail .rte-lazy-button {
+  appearance: none;
+  border: 0;
+  border-radius: 0;
+  background: #111;
+  color: var(--color-primary-text);
+  cursor: pointer;
+  display: block;
+  font: inherit;
+  padding: 0;
+  position: relative;
+  text-align: center;
+  width: 100%;
+}
+.card-post .card-thumbnail .rte-lazy-button img {
+  aspect-ratio: 16/9;
+  display: block;
+  object-fit: contain;
+  width: 100%;
+}
+.card-post .card-thumbnail .rte-lazy-button span {
+  background: var(--color-primary-bg);
+  border-radius: var(--button-border-radius);
+  bottom: 14px;
+  color: var(--color-primary-text);
+  font-size: 15px;
+  font-weight: 600;
+  left: 50%;
+  padding: 9px 12px;
+  position: absolute;
+  transform: translateX(-50%);
+  white-space: nowrap;
+}
+.card-post .card-thumbnail .rte-lazy-button:hover img {
+  opacity: 0.86;
+}
+.card-post .card-thumbnail .rte-lazy-button:focus-visible {
+  outline: 3px solid var(--color-primary-bg);
+  outline-offset: 2px;
+}
 .card-post .card-thumbnail a {
   display: inline-flex;
 }
@@ -26151,6 +26203,23 @@ html[data-bs-theme=dark] .menu-main ul li.menu-item-dropdown .dropdown-menu .dro
   .card-post.card-full .card-content {
     padding: 0;
   }
+}
+
+.video-container {
+  position: relative;
+  padding-bottom: 56.25%; /* 16:9 */
+  height: 0;
+  overflow: hidden;
+  max-width: 100%;
+  background: #000;
+}
+
+.video-container iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
 }
 
 /*# sourceMappingURL=main.css.map */

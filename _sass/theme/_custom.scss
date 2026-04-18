@@ -338,6 +338,60 @@
     border-radius: var(--card-border-radius);
     overflow: hidden;
     display: inline-flex;
+    &.card-thumbnail-rte {
+      display: block;
+      width: 100%;
+      background: #111;
+    }
+    &.card-thumbnail-rte .video-container {
+      width: 100%;
+      max-width: none;
+    }
+    .rte-lazy-player {
+      width: 100%;
+    }
+    .rte-lazy-button {
+      appearance: none;
+      border: 0;
+      border-radius: 0;
+      background: #111;
+      color: var(--color-primary-text);
+      cursor: pointer;
+      display: block;
+      font: inherit;
+      padding: 0;
+      position: relative;
+      text-align: center;
+      width: 100%;
+      img {
+        aspect-ratio: 16 / 9;
+        display: block;
+        object-fit: contain;
+        width: 100%;
+      }
+      span {
+        background: var(--color-primary-bg);
+        border-radius: var(--button-border-radius);
+        bottom: 14px;
+        color: var(--color-primary-text);
+        font-size: 15px;
+        font-weight: 600;
+        left: 50%;
+        padding: 9px 12px;
+        position: absolute;
+        transform: translateX(-50%);
+        white-space: nowrap;
+      }
+      &:hover {
+        img {
+          opacity: 0.86;
+        }
+      }
+      &:focus-visible {
+        outline: 3px solid var(--color-primary-bg);
+        outline-offset: 2px;
+      }
+    }
     a {
       display: inline-flex;
     }

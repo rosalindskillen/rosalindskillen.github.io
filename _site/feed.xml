@@ -3,24 +3,43 @@
   <channel>
     <title>Rosalind Skillen</title>
     <description></description>
-    <link>http://localhost:4000/</link>
-    <atom:link href="http://localhost:4000/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Sun, 16 Nov 2025 19:38:42 +0000</pubDate>
-    <lastBuildDate>Sun, 16 Nov 2025 19:38:42 +0000</lastBuildDate>
+    <link>https://jekyll-origin.netlify.app/</link>
+    <atom:link href="https://jekyll-origin.netlify.app/feed.xml" rel="self" type="application/rss+xml"/>
+    <pubDate>Sat, 18 Apr 2026 19:43:31 +0100</pubDate>
+    <lastBuildDate>Sat, 18 Apr 2026 19:43:31 +0100</lastBuildDate>
     <generator>Jekyll v4.3.2</generator>
+    
+      <item>
+        <title>Sustainable Conversations Podcast</title>
+        <description>
+</description>
+        <pubDate>Mon, 01 Jan 2024 00:00:00 +0000</pubDate>
+        <link>https://jekyll-origin.netlify.app/blog/2024-01-01-podcast/</link>
+        <guid isPermaLink="true">https://jekyll-origin.netlify.app/blog/2024-01-01-podcast/</guid>
+        
+        
+        <category>Sustainability</category>
+        
+        <category>Podcast</category>
+        
+        <category>Circular Economy</category>
+        
+      </item>
     
       <item>
         <title>Irish Farmers Journal</title>
         <description>
 </description>
         <pubDate>Wed, 11 Jan 2023 00:00:00 +0000</pubDate>
-        <link>http://localhost:4000/blog/2023-01-11-irish-farmers-journal/</link>
-        <guid isPermaLink="true">http://localhost:4000/blog/2023-01-11-irish-farmers-journal/</guid>
+        <link>https://jekyll-origin.netlify.app/blog/2023-01-11-irish-farmers-journal/</link>
+        <guid isPermaLink="true">https://jekyll-origin.netlify.app/blog/2023-01-11-irish-farmers-journal/</guid>
         
         
-        <category>Seo</category>
+        <category>Journalism</category>
         
-        <category>Development</category>
+        <category>Health</category>
+        
+        <category>Lifestyle</category>
         
       </item>
     
@@ -29,13 +48,15 @@
         <description>
 </description>
         <pubDate>Thu, 10 Feb 2022 00:00:00 +0000</pubDate>
-        <link>http://localhost:4000/blog/2022-02-10-bel-tel/</link>
-        <guid isPermaLink="true">http://localhost:4000/blog/2022-02-10-bel-tel/</guid>
+        <link>https://jekyll-origin.netlify.app/blog/2022-02-10-bel-tel/</link>
+        <guid isPermaLink="true">https://jekyll-origin.netlify.app/blog/2022-02-10-bel-tel/</guid>
         
         
-        <category>Branding</category>
+        <category>Environment</category>
         
-        <category>Marketing</category>
+        <category>Climate Change</category>
+        
+        <category>Sustainability</category>
         
       </item>
     
@@ -44,13 +65,15 @@
         <description>
 </description>
         <pubDate>Mon, 26 Jul 2021 00:00:00 +0100</pubDate>
-        <link>http://localhost:4000/blog/2021-07-26-the-detail/</link>
-        <guid isPermaLink="true">http://localhost:4000/blog/2021-07-26-the-detail/</guid>
+        <link>https://jekyll-origin.netlify.app/blog/2021-07-26-the-detail/</link>
+        <guid isPermaLink="true">https://jekyll-origin.netlify.app/blog/2021-07-26-the-detail/</guid>
         
         
-        <category>Branding</category>
+        <category>Investigation</category>
         
-        <category>Marketing</category>
+        <category>Journalism</category>
+        
+        <category>Politics</category>
         
       </item>
     
@@ -59,13 +82,15 @@
         <description>
 </description>
         <pubDate>Fri, 23 Jul 2021 00:00:00 +0100</pubDate>
-        <link>http://localhost:4000/blog/2021-07-23-sunday-times/</link>
-        <guid isPermaLink="true">http://localhost:4000/blog/2021-07-23-sunday-times/</guid>
+        <link>https://jekyll-origin.netlify.app/blog/2021-07-23-sunday-times/</link>
+        <guid isPermaLink="true">https://jekyll-origin.netlify.app/blog/2021-07-23-sunday-times/</guid>
         
         
-        <category>Branding</category>
+        <category>Sustainability</category>
         
-        <category>Marketing</category>
+        <category>Community</category>
+        
+        <category>Conservation</category>
         
       </item>
     
@@ -74,13 +99,15 @@
         <description>
 </description>
         <pubDate>Tue, 20 Jul 2021 00:00:00 +0100</pubDate>
-        <link>http://localhost:4000/blog/2021-07-20-bbc/</link>
-        <guid isPermaLink="true">http://localhost:4000/blog/2021-07-20-bbc/</guid>
+        <link>https://jekyll-origin.netlify.app/blog/2021-07-20-bbc/</link>
+        <guid isPermaLink="true">https://jekyll-origin.netlify.app/blog/2021-07-20-bbc/</guid>
         
         
-        <category>Branding</category>
+        <category>Environment</category>
         
-        <category>Marketing</category>
+        <category>Conservation</category>
+        
+        <category>Climate Change</category>
         
       </item>
     
@@ -89,13 +116,15 @@
         <description>
 </description>
         <pubDate>Sat, 27 Feb 2021 00:00:00 +0000</pubDate>
-        <link>http://localhost:4000/blog/2021-02-27-currency/</link>
-        <guid isPermaLink="true">http://localhost:4000/blog/2021-02-27-currency/</guid>
+        <link>https://jekyll-origin.netlify.app/blog/2021-02-27-currency/</link>
+        <guid isPermaLink="true">https://jekyll-origin.netlify.app/blog/2021-02-27-currency/</guid>
         
         
-        <category>Branding</category>
+        <category>Sustainability</category>
         
-        <category>Marketing</category>
+        <category>Retail</category>
+        
+        <category>Zero-waste</category>
         
       </item>
     
@@ -104,42 +133,30 @@
         <description>
 </description>
         <pubDate>Thu, 10 Sep 2020 00:00:00 +0100</pubDate>
-        <link>http://localhost:4000/blog/2020-09-10-irish_news/</link>
-        <guid isPermaLink="true">http://localhost:4000/blog/2020-09-10-irish_news/</guid>
+        <link>https://jekyll-origin.netlify.app/blog/2020-09-10-irish_news/</link>
+        <guid isPermaLink="true">https://jekyll-origin.netlify.app/blog/2020-09-10-irish_news/</guid>
         
         
-        <category>Branding</category>
+        <category>Environment</category>
         
-        <category>Marketing</category>
+        <category>Politics</category>
+        
+        <category>Conservation</category>
         
       </item>
     
       <item>
-        <title>Rosalind Skillen</title>
-        <description>&lt;p&gt;Rosalind Skillen is an investigative reporter. Her work has been published in The Detail, a Northern Ireland-based news and analysis website.&lt;/p&gt;
-
-&lt;p&gt;Her reporting covers a wide range of topics, including:&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;Business&lt;/li&gt;
-  &lt;li&gt;Courts&lt;/li&gt;
-  &lt;li&gt;Criminal Justice&lt;/li&gt;
-  &lt;li&gt;Environment&lt;/li&gt;
-  &lt;li&gt;Health&lt;/li&gt;
-  &lt;li&gt;Policing&lt;/li&gt;
-  &lt;li&gt;Politics&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;Skillen’s work provides in-depth analysis and investigation into critical issues in Northern Ireland.&lt;/p&gt;
+        <title>eolas</title>
+        <description>
 </description>
-        <pubDate>Thu, 13 Sep 2018 00:00:00 +0100</pubDate>
-        <link>http://localhost:4000/blog/2018-09-13-rosalind-skillen/</link>
-        <guid isPermaLink="true">http://localhost:4000/blog/2018-09-13-rosalind-skillen/</guid>
+        <pubDate>Tue, 12 Dec 2017 00:00:00 +0000</pubDate>
+        <link>https://jekyll-origin.netlify.app/blog/2017-12-12-eolas/</link>
+        <guid isPermaLink="true">https://jekyll-origin.netlify.app/blog/2017-12-12-eolas/</guid>
         
         
-        <category>Investigation</category>
+        <category>Sustainability</category>
         
-        <category>Journalism</category>
+        <category>Transport</category>
         
       </item>
     

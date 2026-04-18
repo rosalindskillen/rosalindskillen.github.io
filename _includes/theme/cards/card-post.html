@@ -12,10 +12,81 @@
 {% assign thumbnail_size = include.thumbnail_size %}
 
 {% assign youtube_id = include.youtube_id %}
+{% assign rte_clip_id = include.rte_clip_id %}
+{% assign rte_start_seconds = include.rte_start_seconds | default: 0 %}
+{% assign rte_start_label = include.rte_start_label %}
 
-<div class="card card-post card-{{ style }} {% if thumbnail or youtube_id %}card-has-thumbnail{% endif %} {% if icon or fa_icon %}card-has-icon{% endif %}">
+<div class="card card-post card-{{ style }} {% if thumbnail or youtube_id or rte_clip_id %}card-has-thumbnail{% endif %} {% if icon or fa_icon %}card-has-icon{% endif %}">
 
-  {% if thumbnail %}
+  {% if rte_clip_id %}
+    {% assign rte_player_id = "rte-player-" | append: rte_clip_id | append: "-" | append: include.date | slugify %}
+    {% assign rte_lazy_id = "rte-lazy-" | append: rte_clip_id | append: "-" | append: include.date | slugify %}
+    <div class="card-thumbnail card-thumbnail-rte {% if thumbnail_size %}card-thumbnail-{{ thumbnail_size }}{% endif %}">
+      <div
+        id="{{ rte_lazy_id }}"
+        class="rte-lazy-player"
+        data-player-id="{{ rte_player_id }}"
+        data-clip-id="{{ rte_clip_id }}"
+        data-start-seconds="{{ rte_start_seconds }}"
+        data-title="{{ title | escape }} audio player"
+      >
+        <button class="rte-lazy-button" type="button">
+          {% if thumbnail %}
+            <img alt="{{ title }}" src="{{ thumbnail | relative_url }}"/>
+          {% endif %}
+          <span>Play RTÉ clip{% if rte_start_label %} from {{ rte_start_label }}{% endif %}</span>
+        </button>
+      </div>
+    </div>
+    {% if rte_start_seconds and rte_start_seconds != 0 %}
+      <script>
+        (function () {
+          const container = document.getElementById("{{ rte_lazy_id }}");
+
+          if (!container) {
+            return;
+          }
+
+          const button = container.querySelector(".rte-lazy-button");
+
+          if (!button) {
+            return;
+          }
+
+          button.addEventListener("click", function () {
+            const startAtSeconds = Number(container.dataset.startSeconds || 0);
+            const playerId = container.dataset.playerId;
+            const clipId = container.dataset.clipId;
+            const title = container.dataset.title || "RTÉ audio player";
+            const playerWrap = document.createElement("div");
+            const iframe = document.createElement("iframe");
+
+            playerWrap.className = "video-container";
+            iframe.id = playerId;
+            iframe.title = title;
+            iframe.src = "https://www.rte.ie/bosco/components/player/iframe.html?radioUI=true&pl_pillar=Radio&clipid=" + encodeURIComponent(clipId);
+            iframe.allow = "autoplay";
+
+            playerWrap.appendChild(iframe);
+            container.replaceChildren(playerWrap);
+
+            iframe.addEventListener("load", function () {
+              if (!startAtSeconds) {
+                return;
+              }
+
+              setTimeout(function () {
+                iframe.contentWindow.postMessage({
+                  action: "seekto",
+                  currentTime: startAtSeconds
+                }, "https://www.rte.ie");
+              }, 1500);
+            });
+          });
+        })();
+      </script>
+    {% endif %}
+  {% elsif thumbnail %}
     <div class="card-thumbnail {% if thumbnail_size %}card-thumbnail-{{ thumbnail_size }}{% endif %}">
       <a href="{{ url | relative_url }}"><img alt="{{ title }}" src="{{ thumbnail | relative_url }}"/></a>
     </div>
