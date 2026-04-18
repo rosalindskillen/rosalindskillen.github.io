@@ -529,6 +529,11 @@
 
               setTimeout(function () {
                 iframe.contentWindow.postMessage({
+                  action: "play",
+                  currentTime: startAtSeconds
+                }, "https://www.rte.ie");
+
+                iframe.contentWindow.postMessage({
                   action: "seekto",
                   currentTime: startAtSeconds
                 }, "https://www.rte.ie");
@@ -589,9 +594,78 @@
 <div class="card card-post card-full card-has-thumbnail ">
 
   
-    <div class="card-thumbnail ">
-      <a href="https://www.rte.ie/radio/2fm/2fm-weekend-morning-with-katja-mia/"><img alt="RTÉ 2FM" src="/assets/images/gen/media/rte_2fm.jpg"/></a>
+    
+    
+    <div class="card-thumbnail card-thumbnail-rte ">
+      <div
+        id="rte-lazy-11778104-2026-02-11-00-00-00-0000"
+        class="rte-lazy-player"
+        data-player-id="rte-player-11778104-2026-02-11-00-00-00-0000"
+        data-clip-id="11778104"
+        data-start-seconds="5887"
+        data-title="RTÉ 2FM audio player"
+      >
+        <button class="rte-lazy-button" type="button">
+          
+            <img alt="RTÉ 2FM" src="/assets/images/gen/media/rte_2fm.jpg"/>
+          
+          <span>Play RTÉ clip from 1:38:07</span>
+        </button>
+      </div>
     </div>
+    
+      <script>
+        (function () {
+          const container = document.getElementById("rte-lazy-11778104-2026-02-11-00-00-00-0000");
+
+          if (!container) {
+            return;
+          }
+
+          const button = container.querySelector(".rte-lazy-button");
+
+          if (!button) {
+            return;
+          }
+
+          button.addEventListener("click", function () {
+            const startAtSeconds = Number(container.dataset.startSeconds || 0);
+            const playerId = container.dataset.playerId;
+            const clipId = container.dataset.clipId;
+            const title = container.dataset.title || "RTÉ audio player";
+            const playerWrap = document.createElement("div");
+            const iframe = document.createElement("iframe");
+
+            playerWrap.className = "video-container";
+            iframe.id = playerId;
+            iframe.title = title;
+            iframe.src = "https://www.rte.ie/bosco/components/player/iframe.html?radioUI=true&pl_pillar=Radio&clipid=" + encodeURIComponent(clipId);
+            iframe.allow = "autoplay";
+
+            playerWrap.appendChild(iframe);
+            container.replaceChildren(playerWrap);
+
+            iframe.addEventListener("load", function () {
+              if (!startAtSeconds) {
+                return;
+              }
+
+              setTimeout(function () {
+                iframe.contentWindow.postMessage({
+                  action: "play",
+                  currentTime: startAtSeconds
+                }, "https://www.rte.ie");
+
+                iframe.contentWindow.postMessage({
+                  action: "seekto",
+                  currentTime: startAtSeconds
+                }, "https://www.rte.ie");
+              }, 1500);
+            });
+          });
+        })();
+      </script>
+    
   
 
   <div class="card-content">
@@ -599,7 +673,7 @@
 
     <div class="card-title">
       <h3>
-        <a href="https://www.rte.ie/radio/2fm/2fm-weekend-morning-with-katja-mia/">RTÉ 2FM</a>
+        <a href="https://www.rte.ie/radio/2fm/2fm-weekend-morning-with-katja-mia/2026/0207/1557253-2fm-weekend-morning-with-katja-mia-saturday-7-february-2026//">RTÉ 2FM</a>
       </h3>
     </div>
 

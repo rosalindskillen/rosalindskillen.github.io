@@ -25947,7 +25947,7 @@ html[data-bs-theme=dark] .menu-main ul li.menu-item-dropdown .dropdown-menu .dro
   width: 100%;
 }
 .card-post .card-thumbnail .rte-lazy-button span {
-  background: var(--color-primary-bg);
+  background: rgba(236, 37, 90, 0.78);
   border-radius: var(--button-border-radius);
   bottom: 14px;
   color: var(--color-primary-text);

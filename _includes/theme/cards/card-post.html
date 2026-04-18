@@ -77,6 +77,11 @@
 
               setTimeout(function () {
                 iframe.contentWindow.postMessage({
+                  action: "play",
+                  currentTime: startAtSeconds
+                }, "https://www.rte.ie");
+
+                iframe.contentWindow.postMessage({
                   action: "seekto",
                   currentTime: startAtSeconds
                 }, "https://www.rte.ie");
