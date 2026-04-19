@@ -493,59 +493,57 @@
         </button>
       </div>
     </div>
-    
-      <script>
-        (function () {
-          const container = document.getElementById("rte-lazy-11788820-2026-04-10-00-00-00-0100");
+    <script>
+      (function () {
+        const container = document.getElementById("rte-lazy-11788820-2026-04-10-00-00-00-0100");
 
-          if (!container) {
-            return;
-          }
+        if (!container) {
+          return;
+        }
 
-          const button = container.querySelector(".rte-lazy-button");
+        const button = container.querySelector(".rte-lazy-button");
 
-          if (!button) {
-            return;
-          }
+        if (!button) {
+          return;
+        }
 
-          button.addEventListener("click", function () {
-            const startAtSeconds = Number(container.dataset.startSeconds || 0);
-            const playerId = container.dataset.playerId;
-            const clipId = container.dataset.clipId;
-            const title = container.dataset.title || "RTÉ audio player";
-            const playerWrap = document.createElement("div");
-            const iframe = document.createElement("iframe");
+        button.addEventListener("click", function () {
+          const startAtSeconds = Number(container.dataset.startSeconds || 0);
+          const playerId = container.dataset.playerId;
+          const clipId = container.dataset.clipId;
+          const title = container.dataset.title || "RTÉ audio player";
+          const playerWrap = document.createElement("div");
+          const iframe = document.createElement("iframe");
 
-            playerWrap.className = "video-container";
-            iframe.id = playerId;
-            iframe.title = title;
-            iframe.src = "https://www.rte.ie/bosco/components/player/iframe.html?radioUI=true&pl_pillar=Radio&clipid=" + encodeURIComponent(clipId);
-            iframe.allow = "autoplay";
+          playerWrap.className = "video-container";
+          iframe.id = playerId;
+          iframe.title = title;
+          iframe.src = "https://www.rte.ie/bosco/components/player/iframe.html?radioUI=true&pl_pillar=Radio&clipid=" + encodeURIComponent(clipId);
+          iframe.allow = "autoplay";
 
-            playerWrap.appendChild(iframe);
-            container.replaceChildren(playerWrap);
+          playerWrap.appendChild(iframe);
+          container.replaceChildren(playerWrap);
 
-            iframe.addEventListener("load", function () {
-              if (!startAtSeconds) {
-                return;
-              }
+          iframe.addEventListener("load", function () {
+            if (!startAtSeconds) {
+              return;
+            }
 
-              setTimeout(function () {
-                iframe.contentWindow.postMessage({
-                  action: "play",
-                  currentTime: startAtSeconds
-                }, "https://www.rte.ie");
+            setTimeout(function () {
+              iframe.contentWindow.postMessage({
+                action: "play",
+                currentTime: startAtSeconds
+              }, "https://www.rte.ie");
 
-                iframe.contentWindow.postMessage({
-                  action: "seekto",
-                  currentTime: startAtSeconds
-                }, "https://www.rte.ie");
-              }, 1500);
-            });
+              iframe.contentWindow.postMessage({
+                action: "seekto",
+                currentTime: startAtSeconds
+              }, "https://www.rte.ie");
+            }, 1500);
           });
-        })();
-      </script>
-    
+        });
+      })();
+    </script>
   
 
   <div class="card-content">
@@ -839,6 +837,124 @@
     
     <div class="card-thumbnail card-thumbnail-audio ">
       <div
+        id="audio-lazy-2026-02-19-00-00-00-0000-tipp-fm"
+        class="audio-lazy-player"
+        data-audio-src="https://feeds.soundcloud.com/stream/2269356404-tippfmradio-tipp-today-full-show-190226.mp3"
+        data-start-seconds="305"
+        data-title="Tipp FM"
+      >
+        <button class="audio-lazy-button rte-lazy-button" type="button">
+          
+            <img alt="Tipp FM" src="/assets/images/gen/media/tipp_fm.jpg"/>
+          
+          <span>Play clip from 5:05</span>
+        </button>
+      </div>
+    </div>
+    <script>
+      (function () {
+        const container = document.getElementById("audio-lazy-2026-02-19-00-00-00-0000-tipp-fm");
+
+        if (!container) {
+          return;
+        }
+
+        const button = container.querySelector(".audio-lazy-button");
+
+        if (!button) {
+          return;
+        }
+
+        button.addEventListener("click", function () {
+          const startAtSeconds = Number(container.dataset.startSeconds || 0);
+          const source = container.dataset.audioSrc;
+          const title = container.dataset.title || "Audio clip";
+          const thumbnail = button.querySelector("img");
+          const playerWrap = document.createElement("div");
+          const player = document.createElement("audio");
+
+          playerWrap.className = "audio-player-active";
+          if (thumbnail) {
+            playerWrap.appendChild(thumbnail.cloneNode(true));
+          }
+
+          player.controls = true;
+          player.preload = "metadata";
+          player.src = source + (startAtSeconds ? "#t=" + startAtSeconds : "");
+          player.setAttribute("aria-label", title);
+
+          playerWrap.appendChild(player);
+          container.replaceChildren(playerWrap);
+          player.addEventListener("loadedmetadata", function () {
+            if (startAtSeconds) {
+              player.currentTime = startAtSeconds;
+            }
+          }, { once: true });
+          player.play().catch(function () {
+            if (startAtSeconds) {
+              player.currentTime = startAtSeconds;
+            }
+          });
+        });
+      })();
+    </script>
+  
+
+  <div class="card-content">
+    
+
+    <div class="card-title">
+      <h3>
+        <a href="https://tippfm.com/podcasts/tipp-today-full-show-190226/">Tipp FM</a>
+      </h3>
+    </div>
+
+    
+
+    
+      <div class="card-description">
+        <p>I spoke to Tipp FM about the use of nicotine pouches in Irish schools.</p>
+      </div>
+    
+
+    
+
+    
+
+  </div>
+</div>
+
+              </div>
+            
+              
+              <div class="col-12 col-md-6 mb-3 mb-md-6 mb-lg-12">
+                
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="card card-post card-full card-has-thumbnail ">
+
+  
+    
+    <div class="card-thumbnail card-thumbnail-audio ">
+      <div
         id="audio-lazy-2026-02-19-00-00-00-0000-inside-the-irish-farmers-journal"
         class="audio-lazy-player"
         data-audio-src="https://sphinx.acast.com/p/open/s/65f99769d324f80016529eaa/e/6996f6d04c238f5dca44e7df/media.mp3"
@@ -973,59 +1089,57 @@
         </button>
       </div>
     </div>
-    
-      <script>
-        (function () {
-          const container = document.getElementById("rte-lazy-11778104-2026-02-11-00-00-00-0000");
+    <script>
+      (function () {
+        const container = document.getElementById("rte-lazy-11778104-2026-02-11-00-00-00-0000");
 
-          if (!container) {
-            return;
-          }
+        if (!container) {
+          return;
+        }
 
-          const button = container.querySelector(".rte-lazy-button");
+        const button = container.querySelector(".rte-lazy-button");
 
-          if (!button) {
-            return;
-          }
+        if (!button) {
+          return;
+        }
 
-          button.addEventListener("click", function () {
-            const startAtSeconds = Number(container.dataset.startSeconds || 0);
-            const playerId = container.dataset.playerId;
-            const clipId = container.dataset.clipId;
-            const title = container.dataset.title || "RTÉ audio player";
-            const playerWrap = document.createElement("div");
-            const iframe = document.createElement("iframe");
+        button.addEventListener("click", function () {
+          const startAtSeconds = Number(container.dataset.startSeconds || 0);
+          const playerId = container.dataset.playerId;
+          const clipId = container.dataset.clipId;
+          const title = container.dataset.title || "RTÉ audio player";
+          const playerWrap = document.createElement("div");
+          const iframe = document.createElement("iframe");
 
-            playerWrap.className = "video-container";
-            iframe.id = playerId;
-            iframe.title = title;
-            iframe.src = "https://www.rte.ie/bosco/components/player/iframe.html?radioUI=true&pl_pillar=Radio&clipid=" + encodeURIComponent(clipId);
-            iframe.allow = "autoplay";
+          playerWrap.className = "video-container";
+          iframe.id = playerId;
+          iframe.title = title;
+          iframe.src = "https://www.rte.ie/bosco/components/player/iframe.html?radioUI=true&pl_pillar=Radio&clipid=" + encodeURIComponent(clipId);
+          iframe.allow = "autoplay";
 
-            playerWrap.appendChild(iframe);
-            container.replaceChildren(playerWrap);
+          playerWrap.appendChild(iframe);
+          container.replaceChildren(playerWrap);
 
-            iframe.addEventListener("load", function () {
-              if (!startAtSeconds) {
-                return;
-              }
+          iframe.addEventListener("load", function () {
+            if (!startAtSeconds) {
+              return;
+            }
 
-              setTimeout(function () {
-                iframe.contentWindow.postMessage({
-                  action: "play",
-                  currentTime: startAtSeconds
-                }, "https://www.rte.ie");
+            setTimeout(function () {
+              iframe.contentWindow.postMessage({
+                action: "play",
+                currentTime: startAtSeconds
+              }, "https://www.rte.ie");
 
-                iframe.contentWindow.postMessage({
-                  action: "seekto",
-                  currentTime: startAtSeconds
-                }, "https://www.rte.ie");
-              }, 1500);
-            });
+              iframe.contentWindow.postMessage({
+                action: "seekto",
+                currentTime: startAtSeconds
+              }, "https://www.rte.ie");
+            }, 1500);
           });
-        })();
-      </script>
-    
+        });
+      })();
+    </script>
   
 
   <div class="card-content">
@@ -1198,9 +1312,70 @@
 <div class="card card-post card-full card-has-thumbnail ">
 
   
-    <div class="card-thumbnail ">
-      <a href="https://tippfm.com/listen-back/ag-report-with-jim-finn-10-jan/"><img alt="Tipp FM" src="/assets/images/gen/media/tipp_fm.jpg"/></a>
+    
+    <div class="card-thumbnail card-thumbnail-audio ">
+      <div
+        id="audio-lazy-2026-01-10-00-00-00-0000-tipp-fm"
+        class="audio-lazy-player"
+        data-audio-src="https://feeds.soundcloud.com/stream/2247249518-tippfmradio-ag-report-with-jim-finn-10jan.mp3"
+        data-start-seconds="1956"
+        data-title="Tipp FM"
+      >
+        <button class="audio-lazy-button rte-lazy-button" type="button">
+          
+            <img alt="Tipp FM" src="/assets/images/gen/media/tipp_fm.jpg"/>
+          
+          <span>Play clip from 32:36</span>
+        </button>
+      </div>
     </div>
+    <script>
+      (function () {
+        const container = document.getElementById("audio-lazy-2026-01-10-00-00-00-0000-tipp-fm");
+
+        if (!container) {
+          return;
+        }
+
+        const button = container.querySelector(".audio-lazy-button");
+
+        if (!button) {
+          return;
+        }
+
+        button.addEventListener("click", function () {
+          const startAtSeconds = Number(container.dataset.startSeconds || 0);
+          const source = container.dataset.audioSrc;
+          const title = container.dataset.title || "Audio clip";
+          const thumbnail = button.querySelector("img");
+          const playerWrap = document.createElement("div");
+          const player = document.createElement("audio");
+
+          playerWrap.className = "audio-player-active";
+          if (thumbnail) {
+            playerWrap.appendChild(thumbnail.cloneNode(true));
+          }
+
+          player.controls = true;
+          player.preload = "metadata";
+          player.src = source + (startAtSeconds ? "#t=" + startAtSeconds : "");
+          player.setAttribute("aria-label", title);
+
+          playerWrap.appendChild(player);
+          container.replaceChildren(playerWrap);
+          player.addEventListener("loadedmetadata", function () {
+            if (startAtSeconds) {
+              player.currentTime = startAtSeconds;
+            }
+          }, { once: true });
+          player.play().catch(function () {
+            if (startAtSeconds) {
+              player.currentTime = startAtSeconds;
+            }
+          });
+        });
+      })();
+    </script>
   
 
   <div class="card-content">
@@ -1255,9 +1430,76 @@
 <div class="card card-post card-full card-has-thumbnail ">
 
   
-    <div class="card-thumbnail ">
-      <a href="https://www.rte.ie/radio/2fm/clips/22573616/"><img alt="RTÉ 2FM" src="/assets/images/gen/media/rte_2fm.jpg"/></a>
+    
+    
+    <div class="card-thumbnail card-thumbnail-rte ">
+      <div
+        id="rte-lazy-22573616-2026-01-10-00-00-00-0000"
+        class="rte-lazy-player"
+        data-player-id="rte-player-22573616-2026-01-10-00-00-00-0000"
+        data-clip-id="22573616"
+        data-start-seconds="0"
+        data-title="RTÉ 2FM audio player"
+      >
+        <button class="rte-lazy-button" type="button">
+          
+            <img alt="RTÉ 2FM" src="/assets/images/gen/media/rte_2fm.jpg"/>
+          
+          <span>Play RTÉ clip</span>
+        </button>
+      </div>
     </div>
+    <script>
+      (function () {
+        const container = document.getElementById("rte-lazy-22573616-2026-01-10-00-00-00-0000");
+
+        if (!container) {
+          return;
+        }
+
+        const button = container.querySelector(".rte-lazy-button");
+
+        if (!button) {
+          return;
+        }
+
+        button.addEventListener("click", function () {
+          const startAtSeconds = Number(container.dataset.startSeconds || 0);
+          const playerId = container.dataset.playerId;
+          const clipId = container.dataset.clipId;
+          const title = container.dataset.title || "RTÉ audio player";
+          const playerWrap = document.createElement("div");
+          const iframe = document.createElement("iframe");
+
+          playerWrap.className = "video-container";
+          iframe.id = playerId;
+          iframe.title = title;
+          iframe.src = "https://www.rte.ie/bosco/components/player/iframe.html?radioUI=true&pl_pillar=Radio&clipid=" + encodeURIComponent(clipId);
+          iframe.allow = "autoplay";
+
+          playerWrap.appendChild(iframe);
+          container.replaceChildren(playerWrap);
+
+          iframe.addEventListener("load", function () {
+            if (!startAtSeconds) {
+              return;
+            }
+
+            setTimeout(function () {
+              iframe.contentWindow.postMessage({
+                action: "play",
+                currentTime: startAtSeconds
+              }, "https://www.rte.ie");
+
+              iframe.contentWindow.postMessage({
+                action: "seekto",
+                currentTime: startAtSeconds
+              }, "https://www.rte.ie");
+            }, 1500);
+          });
+        });
+      })();
+    </script>
   
 
   <div class="card-content">

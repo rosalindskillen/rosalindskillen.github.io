@@ -41,59 +41,57 @@
         </button>
       </div>
     </div>
-    {% if rte_start_seconds and rte_start_seconds != 0 %}
-      <script>
-        (function () {
-          const container = document.getElementById("{{ rte_lazy_id }}");
+    <script>
+      (function () {
+        const container = document.getElementById("{{ rte_lazy_id }}");
 
-          if (!container) {
-            return;
-          }
+        if (!container) {
+          return;
+        }
 
-          const button = container.querySelector(".rte-lazy-button");
+        const button = container.querySelector(".rte-lazy-button");
 
-          if (!button) {
-            return;
-          }
+        if (!button) {
+          return;
+        }
 
-          button.addEventListener("click", function () {
-            const startAtSeconds = Number(container.dataset.startSeconds || 0);
-            const playerId = container.dataset.playerId;
-            const clipId = container.dataset.clipId;
-            const title = container.dataset.title || "RTÉ audio player";
-            const playerWrap = document.createElement("div");
-            const iframe = document.createElement("iframe");
+        button.addEventListener("click", function () {
+          const startAtSeconds = Number(container.dataset.startSeconds || 0);
+          const playerId = container.dataset.playerId;
+          const clipId = container.dataset.clipId;
+          const title = container.dataset.title || "RTÉ audio player";
+          const playerWrap = document.createElement("div");
+          const iframe = document.createElement("iframe");
 
-            playerWrap.className = "video-container";
-            iframe.id = playerId;
-            iframe.title = title;
-            iframe.src = "https://www.rte.ie/bosco/components/player/iframe.html?radioUI=true&pl_pillar=Radio&clipid=" + encodeURIComponent(clipId);
-            iframe.allow = "autoplay";
+          playerWrap.className = "video-container";
+          iframe.id = playerId;
+          iframe.title = title;
+          iframe.src = "https://www.rte.ie/bosco/components/player/iframe.html?radioUI=true&pl_pillar=Radio&clipid=" + encodeURIComponent(clipId);
+          iframe.allow = "autoplay";
 
-            playerWrap.appendChild(iframe);
-            container.replaceChildren(playerWrap);
+          playerWrap.appendChild(iframe);
+          container.replaceChildren(playerWrap);
 
-            iframe.addEventListener("load", function () {
-              if (!startAtSeconds) {
-                return;
-              }
+          iframe.addEventListener("load", function () {
+            if (!startAtSeconds) {
+              return;
+            }
 
-              setTimeout(function () {
-                iframe.contentWindow.postMessage({
-                  action: "play",
-                  currentTime: startAtSeconds
-                }, "https://www.rte.ie");
+            setTimeout(function () {
+              iframe.contentWindow.postMessage({
+                action: "play",
+                currentTime: startAtSeconds
+              }, "https://www.rte.ie");
 
-                iframe.contentWindow.postMessage({
-                  action: "seekto",
-                  currentTime: startAtSeconds
-                }, "https://www.rte.ie");
-              }, 1500);
-            });
+              iframe.contentWindow.postMessage({
+                action: "seekto",
+                currentTime: startAtSeconds
+              }, "https://www.rte.ie");
+            }, 1500);
           });
-        })();
-      </script>
-    {% endif %}
+        });
+      })();
+    </script>
   {% elsif audio_src %}
     {% assign audio_lazy_id = "audio-lazy-" | append: include.date | append: "-" | append: title | slugify %}
     <div class="card-thumbnail card-thumbnail-audio {% if thumbnail_size %}card-thumbnail-{{ thumbnail_size }}{% endif %}">
