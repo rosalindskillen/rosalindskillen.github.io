@@ -719,6 +719,242 @@
 
   
     
+    <div class="card-thumbnail card-thumbnail-audio ">
+      <div
+        id="audio-lazy-2026-03-05-00-00-00-0000-inside-the-irish-farmers-journal"
+        class="audio-lazy-player"
+        data-audio-src="https://sphinx.acast.com/p/open/s/65f99769d324f80016529eaa/e/69a9201297f00280f0b9a15e/media.mp3"
+        data-start-seconds="1270"
+        data-title="Inside the Irish Farmers Journal"
+      >
+        <button class="audio-lazy-button rte-lazy-button" type="button">
+          
+            <img alt="Inside the Irish Farmers Journal" src="/assets/images/gen/media/irish_farmers_journal_health_misinformation.jpg"/>
+          
+          <span>Play clip from 21:10</span>
+        </button>
+      </div>
+    </div>
+    <script>
+      (function () {
+        const container = document.getElementById("audio-lazy-2026-03-05-00-00-00-0000-inside-the-irish-farmers-journal");
+
+        if (!container) {
+          return;
+        }
+
+        const button = container.querySelector(".audio-lazy-button");
+
+        if (!button) {
+          return;
+        }
+
+        button.addEventListener("click", function () {
+          const startAtSeconds = Number(container.dataset.startSeconds || 0);
+          const source = container.dataset.audioSrc;
+          const title = container.dataset.title || "Audio clip";
+          const thumbnail = button.querySelector("img");
+          const playerWrap = document.createElement("div");
+          const player = document.createElement("audio");
+
+          playerWrap.className = "audio-player-active";
+          if (thumbnail) {
+            playerWrap.appendChild(thumbnail.cloneNode(true));
+          }
+
+          player.controls = true;
+          player.preload = "metadata";
+          player.src = source + (startAtSeconds ? "#t=" + startAtSeconds : "");
+          player.setAttribute("aria-label", title);
+
+          playerWrap.appendChild(player);
+          container.replaceChildren(playerWrap);
+          player.addEventListener("loadedmetadata", function () {
+            if (startAtSeconds) {
+              player.currentTime = startAtSeconds;
+            }
+          }, { once: true });
+          player.play().catch(function () {
+            if (startAtSeconds) {
+              player.currentTime = startAtSeconds;
+            }
+          });
+        });
+      })();
+    </script>
+  
+
+  <div class="card-content">
+    
+
+    <div class="card-title">
+      <h3>
+        <a href="https://open.spotify.com/episode/2xIvRMTeQAL4167rozHFgf">Inside the Irish Farmers Journal</a>
+      </h3>
+    </div>
+
+    
+
+    
+      <div class="card-description">
+        <p>I discussed my investigation into health misinformation online, in particular the harmful online trends in neonatal care.</p>
+      </div>
+    
+
+    
+
+    
+
+  </div>
+</div>
+
+              </div>
+            
+              
+              <div class="col-12 col-md-6 mb-3 mb-md-6 mb-lg-12">
+                
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="card card-post card-full card-has-thumbnail ">
+
+  
+    
+    <div class="card-thumbnail card-thumbnail-audio ">
+      <div
+        id="audio-lazy-2026-02-19-00-00-00-0000-inside-the-irish-farmers-journal"
+        class="audio-lazy-player"
+        data-audio-src="https://sphinx.acast.com/p/open/s/65f99769d324f80016529eaa/e/6996f6d04c238f5dca44e7df/media.mp3"
+        data-start-seconds="1403"
+        data-title="Inside the Irish Farmers Journal"
+      >
+        <button class="audio-lazy-button rte-lazy-button" type="button">
+          
+            <img alt="Inside the Irish Farmers Journal" src="/assets/images/gen/media/irish_farmers_journal_common_conditions.jpg"/>
+          
+          <span>Play clip from 23:23</span>
+        </button>
+      </div>
+    </div>
+    <script>
+      (function () {
+        const container = document.getElementById("audio-lazy-2026-02-19-00-00-00-0000-inside-the-irish-farmers-journal");
+
+        if (!container) {
+          return;
+        }
+
+        const button = container.querySelector(".audio-lazy-button");
+
+        if (!button) {
+          return;
+        }
+
+        button.addEventListener("click", function () {
+          const startAtSeconds = Number(container.dataset.startSeconds || 0);
+          const source = container.dataset.audioSrc;
+          const title = container.dataset.title || "Audio clip";
+          const thumbnail = button.querySelector("img");
+          const playerWrap = document.createElement("div");
+          const player = document.createElement("audio");
+
+          playerWrap.className = "audio-player-active";
+          if (thumbnail) {
+            playerWrap.appendChild(thumbnail.cloneNode(true));
+          }
+
+          player.controls = true;
+          player.preload = "metadata";
+          player.src = source + (startAtSeconds ? "#t=" + startAtSeconds : "");
+          player.setAttribute("aria-label", title);
+
+          playerWrap.appendChild(player);
+          container.replaceChildren(playerWrap);
+          player.addEventListener("loadedmetadata", function () {
+            if (startAtSeconds) {
+              player.currentTime = startAtSeconds;
+            }
+          }, { once: true });
+          player.play().catch(function () {
+            if (startAtSeconds) {
+              player.currentTime = startAtSeconds;
+            }
+          });
+        });
+      })();
+    </script>
+  
+
+  <div class="card-content">
+    
+
+    <div class="card-title">
+      <h3>
+        <a href="https://open.spotify.com/episode/66i12wY01fo7uG1pR4z1qh">Inside the Irish Farmers Journal</a>
+      </h3>
+    </div>
+
+    
+
+    
+      <div class="card-description">
+        <p>I spoke about the new Common Conditions Service that has been rolled out across Irish pharmacies, and the impact that the scheme is having in rural communities.</p>
+      </div>
+    
+
+    
+
+    
+
+  </div>
+</div>
+
+              </div>
+            
+              
+              <div class="col-12 col-md-6 mb-3 mb-md-6 mb-lg-12">
+                
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="card card-post card-full card-has-thumbnail ">
+
+  
+    
     
     <div class="card-thumbnail card-thumbnail-rte ">
       <div
