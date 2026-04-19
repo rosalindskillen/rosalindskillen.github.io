@@ -1361,6 +1361,124 @@
 <div class="card card-post card-full card-has-thumbnail ">
 
   
+    
+    <div class="card-thumbnail card-thumbnail-audio ">
+      <div
+        id="audio-lazy-2022-09-30-00-00-00-0100-belfast-telegraph"
+        class="audio-lazy-player"
+        data-audio-src="https://sphinx.acast.com/p/open/s/65670352d7b5d40012be7324/e/f41cf250-8742-419b-8d8d-af1f015f62a6/media.mp3"
+        data-start-seconds="0"
+        data-title="Belfast Telegraph"
+      >
+        <button class="audio-lazy-button rte-lazy-button" type="button">
+          
+            <img alt="Belfast Telegraph" src="/assets/images/gen/media/beltel.png"/>
+          
+          <span>Play clip</span>
+        </button>
+      </div>
+    </div>
+    <script>
+      (function () {
+        const container = document.getElementById("audio-lazy-2022-09-30-00-00-00-0100-belfast-telegraph");
+
+        if (!container) {
+          return;
+        }
+
+        const button = container.querySelector(".audio-lazy-button");
+
+        if (!button) {
+          return;
+        }
+
+        button.addEventListener("click", function () {
+          const startAtSeconds = Number(container.dataset.startSeconds || 0);
+          const source = container.dataset.audioSrc;
+          const title = container.dataset.title || "Audio clip";
+          const thumbnail = button.querySelector("img");
+          const playerWrap = document.createElement("div");
+          const player = document.createElement("audio");
+
+          playerWrap.className = "audio-player-active";
+          if (thumbnail) {
+            playerWrap.appendChild(thumbnail.cloneNode(true));
+          }
+
+          player.controls = true;
+          player.preload = "metadata";
+          player.src = source + (startAtSeconds ? "#t=" + startAtSeconds : "");
+          player.setAttribute("aria-label", title);
+
+          playerWrap.appendChild(player);
+          container.replaceChildren(playerWrap);
+          player.addEventListener("loadedmetadata", function () {
+            if (startAtSeconds) {
+              player.currentTime = startAtSeconds;
+            }
+          }, { once: true });
+          player.play().catch(function () {
+            if (startAtSeconds) {
+              player.currentTime = startAtSeconds;
+            }
+          });
+        });
+      })();
+    </script>
+  
+
+  <div class="card-content">
+    
+
+    <div class="card-title">
+      <h3>
+        <a href="https://podcasts.apple.com/gb/podcast/do-we-need-to-dump-comforts-and-capitalism-to-solve/id1620386537?i=1000581087644">Belfast Telegraph</a>
+      </h3>
+    </div>
+
+    
+
+    
+      <div class="card-description">
+        <p>Do we need to dump comforts and capitalism to solve the climate crisis? I spoke to Belfast Telegraph about why climate change is not a deal breaker at the ballot box.</p>
+      </div>
+    
+
+    
+
+    
+
+  </div>
+</div>
+
+              </div>
+            
+              
+              <div class="col-12 col-md-6 mb-3 mb-md-6 mb-lg-12">
+                
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="card card-post card-full card-has-thumbnail ">
+
+  
     <div class="card-thumbnail ">
       <a href="https://www.youtube.com/watch?v=wsdQt4HShbE"><img alt="Tedx Talks" src="/assets/images/gen/media/tedx.jpg"/></a>
     </div>
