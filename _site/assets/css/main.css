@@ -25924,7 +25924,16 @@ html[data-bs-theme=dark] .menu-main ul li.menu-item-dropdown .dropdown-menu .dro
   width: 100%;
   background: #111;
 }
+.card-post .card-thumbnail.card-thumbnail-youtube {
+  display: block;
+  width: 100%;
+  background: #111;
+}
 .card-post .card-thumbnail.card-thumbnail-rte .video-container {
+  width: 100%;
+  max-width: none;
+}
+.card-post .card-thumbnail.card-thumbnail-youtube .video-container {
   width: 100%;
   max-width: none;
 }

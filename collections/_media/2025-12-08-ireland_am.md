@@ -5,4 +5,7 @@ date: 2025-12-08
 outlet: 'Virgin Media'
 thumbnail: "/assets/images/gen/media/ireland_am.jpg"
 link: "https://youtu.be/iq52zCD56lw?t=2s"
+youtube_id: "iq52zCD56lw"
+youtube_start_seconds: 2
+youtube_start_label: "0:02"
 ---

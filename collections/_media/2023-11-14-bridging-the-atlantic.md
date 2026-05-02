@@ -6,4 +6,7 @@ date: 2023-11-14
 outlet: Bridging The Atlantic
 link: "https://youtu.be/6MnlR8J1kVY"
 thumbnail: "/assets/images/gen/media/bridge.jpg"
+youtube_id: "6MnlR8J1kVY"
+youtube_start_seconds: 10432
+youtube_start_label: "2:53:52"
 ---

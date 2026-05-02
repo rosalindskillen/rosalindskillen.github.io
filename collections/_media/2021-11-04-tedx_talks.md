@@ -5,4 +5,5 @@ description: I delivered a TEDx talk in Stormont Parliament Buildings in advance
 outlet: Tedx Talks
 link: "https://www.youtube.com/watch?v=wsdQt4HShbE"
 thumbnail: "/assets/images/gen/media/tedx.jpg"
+youtube_id: "wsdQt4HShbE"
 ---

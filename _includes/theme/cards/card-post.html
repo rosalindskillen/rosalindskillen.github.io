@@ -12,6 +12,8 @@
 {% assign thumbnail_size = include.thumbnail_size %}
 
 {% assign youtube_id = include.youtube_id %}
+{% assign youtube_start_seconds = include.youtube_start_seconds | default: 0 %}
+{% assign youtube_start_label = include.youtube_start_label %}
 {% assign rte_clip_id = include.rte_clip_id %}
 {% assign rte_start_seconds = include.rte_start_seconds | default: 0 %}
 {% assign rte_start_label = include.rte_start_label %}
@@ -157,15 +159,67 @@
         });
       })();
     </script>
+  {% elsif youtube_id %}
+    {% assign youtube_lazy_id = "youtube-lazy-" | append: include.date | append: "-" | append: youtube_id | slugify %}
+    <div class="card-thumbnail card-thumbnail-youtube {% if thumbnail_size %}card-thumbnail-{{ thumbnail_size }}{% endif %}">
+      <div
+        id="{{ youtube_lazy_id }}"
+        class="youtube-lazy-player"
+        data-youtube-id="{{ youtube_id }}"
+        data-start-seconds="{{ youtube_start_seconds }}"
+        data-title="{{ title | escape }}"
+      >
+        <button class="youtube-lazy-button rte-lazy-button" type="button">
+          {% if thumbnail %}
+            <img alt="{{ title }}" src="{{ thumbnail | relative_url }}"/>
+          {% endif %}
+          <span>Play video{% if youtube_start_label %} from {{ youtube_start_label }}{% endif %}</span>
+        </button>
+      </div>
+    </div>
+    <script>
+      (function () {
+        const container = document.getElementById("{{ youtube_lazy_id }}");
+
+        if (!container) {
+          return;
+        }
+
+        const button = container.querySelector(".youtube-lazy-button");
+
+        if (!button) {
+          return;
+        }
+
+        button.addEventListener("click", function () {
+          const youtubeId = container.dataset.youtubeId;
+          const startAtSeconds = Number(container.dataset.startSeconds || 0);
+          const title = container.dataset.title || "YouTube video";
+          const playerWrap = document.createElement("div");
+          const iframe = document.createElement("iframe");
+          let src = "https://www.youtube.com/embed/" + encodeURIComponent(youtubeId) + "?autoplay=1&rel=0";
+
+          if (startAtSeconds) {
+            src += "&start=" + startAtSeconds;
+          }
+
+          playerWrap.className = "video-container";
+          iframe.width = "560";
+          iframe.height = "315";
+          iframe.src = src;
+          iframe.title = title;
+          iframe.frameBorder = "0";
+          iframe.allow = "accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share";
+          iframe.allowFullscreen = true;
+
+          playerWrap.appendChild(iframe);
+          container.replaceChildren(playerWrap);
+        });
+      })();
+    </script>
   {% elsif thumbnail %}
     <div class="card-thumbnail {% if thumbnail_size %}card-thumbnail-{{ thumbnail_size }}{% endif %}">
       <a href="{{ url | relative_url }}"><img alt="{{ title }}" src="{{ thumbnail | relative_url }}"/></a>
-    </div>
-  {% elsif youtube_id %}
-    <div class="card-thumbnail {% if thumbnail_size %}card-thumbnail-{{ thumbnail_size }}{% endif %}">
-      <div class="video-container">
-        <iframe width="560" height="315" src="https://www.youtube.com/embed/{{ youtube_id }}" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-      </div>
     </div>
   {% endif %}
 

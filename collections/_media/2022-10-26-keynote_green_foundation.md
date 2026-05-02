@@ -5,4 +5,5 @@ description: I closed the conference talking about how communication, creativity
 outlet: Green Foundation Ireland
 link: "https://www.youtube.com/watch?v=L9rfwXyG-Xs"
 thumbnail: "/assets/images/gen/media/green.jpg"
+youtube_id: "L9rfwXyG-Xs"
 ---

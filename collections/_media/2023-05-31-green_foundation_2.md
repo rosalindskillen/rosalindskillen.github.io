@@ -5,4 +5,5 @@ date: 2023-05-31
 outlet: Green Foundation Ireland
 link: "https://www.youtube.com/watch?v=VBBLWBhE_Tw"
 thumbnail: "/assets/images/gen/media/green.jpg"
+youtube_id: "VBBLWBhE_Tw"
 ---

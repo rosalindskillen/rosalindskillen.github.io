@@ -348,7 +348,16 @@
       width: 100%;
       background: #111;
     }
+    &.card-thumbnail-youtube {
+      display: block;
+      width: 100%;
+      background: #111;
+    }
     &.card-thumbnail-rte .video-container {
+      width: 100%;
+      max-width: none;
+    }
+    &.card-thumbnail-youtube .video-container {
       width: 100%;
       max-width: none;
     }
