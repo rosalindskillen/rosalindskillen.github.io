@@ -308,5 +308,42 @@ For text publications without media players:
 * **Netlify Builds:** Automated on git push via [`netlify.toml`](file:///Users/naivedyabansal/Antigravity/Repos/rosalindskillen.github.io/netlify.toml) using Ruby 3.2.2 and command `jekyll build`.
 * **`_site/` in Git:** While Netlify builds from source, `_site/` is currently tracked in git. When committing significant layout or content changes, ensure `_site` is regenerated or handled according to team conventions.
 
+### 8.1 Local Preview & Tailscale Sharing
+
+When testing locally on devices (e.g. mobile testing on a Pixel/iPhone) or without Bundler 2.3.11 installed, serve `_site/` using Python 3:
+
+```bash
+# Start server bound to all interfaces on port 4000:
+python3 -m http.server 4000 --directory _site
+```
+
+#### Accessing Across Tailscale
+Because Python's `http.server` binds to wildcard `*` by default, the server is immediately accessible to any device on the Tailnet:
+
+1. **Find Tailscale IP & MagicDNS:**
+   ```bash
+   /opt/homebrew/bin/tailscale ip -4
+   # Example output: 100.81.104.11
+
+   /opt/homebrew/bin/tailscale status --json | python3 -c "import sys, json; print(json.load(sys.stdin)['Self']['DNSName'])"
+   # Example output: naivedyas-macbook-air-2.tail2d1908.ts.net.
+   ```
+2. **Access URLs:**
+   * **MagicDNS:** `http://naivedyas-macbook-air-2.tail2d1908.ts.net:4000/`
+   * **Tailscale IP:** `http://100.81.104.11:4000/`
+   * **Media Subpage:** `http://naivedyas-macbook-air-2.tail2d1908.ts.net:4000/media/`
+   * **Blog Subpage:** `http://naivedyas-macbook-air-2.tail2d1908.ts.net:4000/blog/`
+
+3. **Optional Tailscale Serve (HTTPS on port 443):**
+   * Enable Serve once in the Tailscale admin console (`https://login.tailscale.com/f/serve`).
+   * Run:
+     ```bash
+     tailscale serve --bg 4000
+     ```
+   * Access directly via `https://naivedyas-macbook-air-2.tail2d1908.ts.net/`.
+
+> [!NOTE]
+> Tailscale CLI commands interact with the macOS `IPNExtension` daemon over a local port (`127.0.0.1:53239`). In sandboxed environments, executing `tailscale` CLI commands requires `BypassSandbox: true`.
+
 ---
 *Document compiled and verified against repository source code.*

@@ -225,6 +225,7 @@ Current post entries:
 | `2022-02-10-bel-tel.md` | Belfast Telegraph | Yes | Tag page link. |
 | `2023-01-11-irish-farmers-journal.md` | Irish Farmers Journal | Yes | Has `comments: true`, which can trigger Disqus if configured. |
 | `2024-01-01-podcast.md` | Sustainable Conversations Podcast | Yes | Has `comments: true`, external Spotify link. |
+| `2026-09-04-times-higher-education.md` | Times Higher Education | Yes | Author page link for Rosalind Skillen's reporting as Asia reporter. |
 
 The homepage sorts posts by date by default and shows up to 9 cards. The card URL uses `custom_url` when present, so these homepage/blog cards generally send users to external publications rather than local post pages.
 
