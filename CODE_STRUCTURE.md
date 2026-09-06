@@ -4,7 +4,10 @@ This document provides an overview of the repository's code structure and instru
 
 ## Repository Summary
 
-The repository contains a Jekyll-based static website built with a modular and customizable theme. The project is well-structured, following Jekyll conventions, making it straightforward to manage and extend. The website is likely a blog, portfolio, or personal website.
+The repository contains a Jekyll-based static website for journalist **Rosalind Skillen**, built on the Zerostatic Origin theme. For an in-depth developer guide and comprehensive documentation, consult:
+* [`AGENT_ONBOARDING.md`](file:///Users/naivedyabansal/Antigravity/Repos/rosalindskillen.github.io/AGENT_ONBOARDING.md): Master onboarding guide for AI agents and developers.
+* [`docs/jekyll-origin/`](file:///Users/naivedyabansal/Antigravity/Repos/rosalindskillen.github.io/docs/jekyll-origin/README.md): Full local copy of the official Zerostatic Jekyll Origin theme documentation with supersession analysis.
+
 
 ## Code Structure
 

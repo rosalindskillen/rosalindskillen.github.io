@@ -1,8 +1,9 @@
 # Jekyll Origin Notes Inconsistencies
 
-This note compares `jekyll-origin-docs-structured-notes.md` against the current repository state.
+This note compares the official Zerostatic vendor documentation (locally mirrored in [`docs/jekyll-origin/`](file:///Users/naivedyabansal/Antigravity/Repos/rosalindskillen.github.io/docs/jekyll-origin/README.md) and [`jekyll-origin-docs-structured-notes.md`](file:///Users/naivedyabansal/Antigravity/Repos/rosalindskillen.github.io/jekyll-origin-docs-structured-notes.md)) against the current repository state.
 
-The structured notes are useful as a vendor-docs reference for the Zerostatic Jekyll Origin theme, but this repository is a customized and partly stale theme instance. Some paths, defaults, and privacy assumptions in the notes do not match the actual files and configuration in this repo.
+The structured notes and local docs are useful as a vendor-docs reference for the Zerostatic Jekyll Origin theme, but this repository is a customized and partly stale theme instance. Some paths, defaults, and privacy assumptions in the notes do not match the actual files and configuration in this repo.
+
 
 ## 1. Include Paths Differ From This Repo
 
