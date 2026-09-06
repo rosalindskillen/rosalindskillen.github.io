@@ -1,54 +1,29 @@
-# Jekyll Origin Premium Theme
+# Rosalind Skillen — Portfolio & Media
 
-Jekyll Origin is a premium blog theme.
+Welcome! This repository hosts the source code and content for my personal portfolio website, published at [rosalindskillen.github.io](https://rosalindskillen.github.io/).
 
-* [Online Documention](https://www.zerostatic.io/docs/jekyll-origin)
-* [Live Demo](https://jekyll-origin.netlify.app/)
+I am a Belfast-born, Dublin-based freelance journalist and broadcaster. I was shortlisted for **Features Journalist of the Year** and **Young Journalist of the Year** at the Irish Journalism Awards 2025.
 
 ---
 
-![Jekyll Origin Theme screenshot](https://www.zerostatic.io/theme/jekyll-origin/jekyll-origin-screenshot.png)
+## What This Site Showcases
 
-## Install
+This website serves as a central home for my reporting, investigations, and commentary across print, digital, and broadcast media:
 
-### Install Jekll
+* **Journalism & Written Work:** Features, commentary, and investigative reporting focusing on health, sustainability, consumer affairs, rural life, and social issues, published across national and international outlets including *The Irish Times*, *BBC News*, *The Belfast Telegraph*, and *The Irish Farmers Journal*.
+* **Broadcast & Media Appearances:** Regular commentary and guest appearances across national and regional radio, television, podcasts, panel discussions, and keynotes — including RTÉ Radio 1 (*Divine Sparks*), RTÉ 2FM (*Weekend Morning*), *Newstalk Daily*, *Virgin Media Ireland AM*, *Times Higher Education*, *Galway Bay FM*, *Tipp FM*, *Beat 102 103*, and TEDx.
+* **Background & Contact:** My biographical background, current writing beats, availability for speaking engagements and panels, and direct contact details.
 
-Make sure you have Ruby & Jekyll installed - For a step-by-step guide, read Jekyll docs [installation](https://jekyllrb.com/docs/installation/)
+---
 
-### Install Theme
+## Developer & Contributor Documentation
 
-Extract the themes .zip file to your local computer. Navigate to the project root (it contains the README.md)
+If you are maintaining this website, adding new articles, or updating media appearances, start with the master onboarding guide:
 
-Run `bundle install` to install gems.
+👉 **[Agent & Developer Onboarding Guide](AGENT_ONBOARDING.md)**
 
-Then run `jekyll serve` or `bundle exec jekyll serve` to start the Jekyll server.
-
-To build the Jekyll site run `bundle exec jekyll build`
-
-## Deploy
-
-### Netlify
-
-This theme comes with a working `netlify.toml` which will pre-configure your Netlify deployment for Jekyll. The Netlify docs have a great guide to [creating a site with Netlify](https://docs.netlify.com/site-deploys/create-deploys/).
-
-> 💡 If you experience bundle install issues during the Netlify deployment, deleting the Gemfile.lock can sometimes help
-
-### GitHub Pages
-
-This theme is tested to work on Github Pages. Jekyll has a [guide to deploying on Github pages](https://jekyllrb.com/docs/github-pages/).
-
-If you are creating a GitHub Pages "Project site" then your site will be in a sub-folder with a url like `http://username.github.io/repository`. You will need to update the `baseurl` and `url` in the `_config.yml` for the asset paths to work correctly.
-
-## Tips
-
-💡 Some people report problems using the baseurl (often with GitHub Pages). This guide covers the correct usage:  [Jekyll’s site.url and baseurl](https://mademistakes.com/mastering-jekyll/site-url-baseurl/)
-
-💡 If you experience bundle install issues during the Netlify deployment, deleting the Gemfile.lock can sometimes help
-
-## Credits
-
-This theme uses open-source libraries and assets.
-
-- **Bootstrap 5** https://unsplash.com/license
-- **Font Awesome 6 Free:** https://fontawesome.com/
-- **Unsplash Images** https://unsplash.com/
+This document is the single starting point for all technical work. It links to every other detailed guide in the repository, covering:
+* Step-by-step playbooks for adding written articles and broadcast media appearances.
+* The interactive lazy media playback engines (Spotify, RTÉ Bosco player, native HTML5 audio, and YouTube).
+* Front matter schemas, description length rules, and thumbnail specifications.
+* Styling overrides, theme architecture, and build/deployment workflows.
