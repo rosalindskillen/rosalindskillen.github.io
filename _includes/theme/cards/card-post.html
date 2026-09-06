@@ -14,6 +14,7 @@
 {% assign youtube_id = include.youtube_id %}
 {% assign youtube_start_seconds = include.youtube_start_seconds | default: 0 %}
 {% assign youtube_start_label = include.youtube_start_label %}
+{% assign spotify_id = include.spotify_id %}
 {% assign rte_clip_id = include.rte_clip_id %}
 {% assign rte_start_seconds = include.rte_start_seconds | default: 0 %}
 {% assign rte_start_label = include.rte_start_label %}
@@ -21,7 +22,7 @@
 {% assign audio_start_seconds = include.audio_start_seconds | default: 0 %}
 {% assign audio_start_label = include.audio_start_label %}
 
-<div class="card card-post card-{{ style }} {% if thumbnail or youtube_id or rte_clip_id or audio_src %}card-has-thumbnail{% endif %} {% if icon or fa_icon %}card-has-icon{% endif %}">
+<div class="card card-post card-{{ style }} {% if thumbnail or youtube_id or rte_clip_id or audio_src or spotify_id %}card-has-thumbnail{% endif %} {% if icon or fa_icon %}card-has-icon{% endif %}">
 
   {% if rte_clip_id %}
     {% assign rte_player_id = "rte-player-" | append: rte_clip_id | append: "-" | append: include.date | slugify %}
@@ -211,6 +212,70 @@
           iframe.frameBorder = "0";
           iframe.allow = "accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share";
           iframe.allowFullscreen = true;
+
+          playerWrap.appendChild(iframe);
+          container.replaceChildren(playerWrap);
+        });
+      })();
+    </script>
+  {% elsif spotify_id %}
+    {% assign spotify_lazy_id = "spotify-lazy-" | append: include.date | append: "-" | append: spotify_id | slugify %}
+    <div class="card-thumbnail card-thumbnail-spotify {% if thumbnail_size %}card-thumbnail-{{ thumbnail_size }}{% endif %}">
+      <div
+        id="{{ spotify_lazy_id }}"
+        class="spotify-lazy-player"
+        data-spotify-id="{{ spotify_id }}"
+        data-title="{{ title | escape }}"
+      >
+        <button class="spotify-lazy-button rte-lazy-button" type="button">
+          {% if thumbnail %}
+            <img alt="{{ title }}" src="{{ thumbnail | relative_url }}"/>
+          {% endif %}
+          <span>Play episode</span>
+        </button>
+      </div>
+    </div>
+    <script>
+      (function () {
+        const container = document.getElementById("{{ spotify_lazy_id }}");
+
+        if (!container) {
+          return;
+        }
+
+        const button = container.querySelector(".spotify-lazy-button");
+
+        if (!button) {
+          return;
+        }
+
+        button.addEventListener("click", function () {
+          const spotifyId = container.dataset.spotifyId;
+          const title = container.dataset.title || "Spotify podcast episode";
+          const playerWrap = document.createElement("div");
+          const iframe = document.createElement("iframe");
+
+          playerWrap.className = "spotify-player-container";
+          iframe.src = "https://open.spotify.com/embed/episode/" + encodeURIComponent(spotifyId) + "?utm_source=generator";
+          iframe.title = title;
+          iframe.frameBorder = "0";
+          iframe.allow = "autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture";
+          iframe.loading = "lazy";
+          iframe.style.backgroundColor = "transparent";
+
+          function triggerPlay() {
+            try {
+              iframe.contentWindow.postMessage({command: 'play'}, '*');
+              iframe.contentWindow.postMessage({command: 'toggle'}, '*');
+            } catch (e) {}
+          }
+
+          iframe.addEventListener("load", function () {
+            triggerPlay();
+            setTimeout(triggerPlay, 400);
+            setTimeout(triggerPlay, 1000);
+            setTimeout(triggerPlay, 1600);
+          });
 
           playerWrap.appendChild(iframe);
           container.replaceChildren(playerWrap);
