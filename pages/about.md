@@ -9,7 +9,7 @@ image: "/assets/images/gen/content/rosalind-skillen-about-me.jpeg"
 
 ## Background
 
-I'm a Belfast-born, Dublin-based journalist with a grá for bringing peoples' stories to life. My beat is currently health and features, and I've previously covered environment, politics and rural affairs. 
+I'm a Belfast journalist based in London with a grá for bringing peoples' stories to life. I'm currently reporting on education, but until recently I covered health. I have also cut my teeth in features, lifestyle and environmental reporting. 
 
 My favourite part of the job? Working with the people who generously let me into their worlds, and gaining their trust. 
 

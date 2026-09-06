@@ -2,7 +2,7 @@
 layout: home
 permalink: "/"
 title: "Award-Nominated Journalist."
-description: "Belfast-born journalist based in Dublin. Shortlisted as Features Journalist of the Year and Young Journalist of the Year in Irish Journalism Awards 2025."
+description: "Belfast-born journalist based in London. Shortlisted as Features Journalist of the Year and Young Journalist of the Year in Irish Journalism Awards 2025."
 image: "/assets/images/rosalind-skillen-homepage-hero.png"
 show_social_media_in_title: true
 meta_title: Rosalind Skillen
