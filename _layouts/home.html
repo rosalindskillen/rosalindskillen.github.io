@@ -42,13 +42,16 @@ body_classes: page-home
 </div>
 {% endcomment %}
 
-{% assign cards = site.posts | sort: 'title' %}
 {% assign limit = page.posts.limit | default: 6 %}
 {% assign sort_by = page.posts.sort | default: 'date' %}
 {% assign columns =  page.posts.columns | default: 3 %}
 {% capture columns %}col-lg-{{ 12 | divided_by:columns }}{% endcapture %}
 {% if sort_by == 'weight' %}
-  {% assign cards = cards | sort: 'weight' %}
+  {% assign cards = site.posts | sort: 'weight' %}
+{% elsif sort_by == 'title' %}
+  {% assign cards = site.posts | sort: 'title' %}
+{% else %}
+  {% assign cards = site.posts | sort: 'date' | reverse %}
 {% endif %}
 
 {% if cards.size > 0 %}
