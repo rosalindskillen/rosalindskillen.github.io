@@ -24,31 +24,31 @@ The vanilla Zerostatic theme only supports standard written blog posts (`posts`)
 
 ### Vanilla vs. This Repository
 * **Vanilla Theme:** The card component ([`card-post.html`](file:///Users/naivedyabansal/Antigravity/Repos/rosalindskillen.github.io/_includes/framework/card-post.html)) only supports a static thumbnail image wrapped in an `<a href="...">` link.
-* **This Repository:** The card include was overhauled in [`_includes/theme/cards/card-post.html`](file:///Users/naivedyabansal/Antigravity/Repos/rosalindskillen.github.io/_includes/theme/cards/card-post.html) to support **three distinct inline lazy-playback engines**:
+* **This Repository:** The card include was overhauled in [`_includes/theme/cards/card-post.html`](file:///Users/naivedyabansal/Antigravity/Repos/rosalindskillen.github.io/_includes/theme/cards/card-post.html) to support **four distinct inline lazy-playback engines**:
 
 ```
-                              ┌─────────────────────────┐
-                              │    Front Matter In      │
-                              │ collections/_media/*.md │
-                              └────────────┬────────────┘
-                                           │
-          ┌────────────────────────────────┼────────────────────────────────┐
-          ▼                                ▼                                ▼
-  [rte_clip_id]                     [audio_src]                       [youtube_id]
-          │                                │                                │
-          ▼                                ▼                                ▼
-┌──────────────────┐             ┌──────────────────┐             ┌──────────────────┐
-│   RTÉ Lazy Player│             │Native Audio Playr│             │YouTube Lazy Playr│
-│ Thumbnail + Play │             │Thumbnail + Play  │             │Thumbnail + Play  │
-│  Button Overlay  │             │  Button Overlay  │             │  Button Overlay  │
-└─────────┬────────┘             └─────────┬────────┘             └─────────┬────────┘
-          │ (On Click)                     │ (On Click)                     │ (On Click)
-          ▼                                ▼                                ▼
-┌──────────────────┐             ┌──────────────────┐             ┌──────────────────┐
-│ Inject RTÉ Bosco │             │ Inject HTML5     │             │ Inject YouTube   │
-│ Iframe + postMsg │             │ <audio controls> │             │ 16:9 Iframe with │
-│  seekto & play   │             │ with #t=seconds  │             │ ?start=seconds   │
-└──────────────────┘             └──────────────────┘             └──────────────────┘
+                                      ┌─────────────────────────┐
+                                      │    Front Matter In      │
+                                      │ collections/_media/*.md │
+                                      └────────────┬────────────┘
+                                                   │
+           ┌──────────────────────┬────────────────┴────────────────┬──────────────────────┐
+           ▼                      ▼                                 ▼                      ▼
+   [rte_clip_id]             [audio_src]                      [youtube_id]           [spotify_id]
+           │                      │                                 │                      │
+           ▼                      ▼                                 ▼                      ▼
+ ┌──────────────────┐   ┌──────────────────┐              ┌──────────────────┐   ┌──────────────────┐
+ │   RTÉ Lazy Player│   │Native Audio Playr│              │YouTube Lazy Playr│   │Spotify Lazy Playr│
+ │ Thumbnail + Play │   │Thumbnail + Play  │              │Thumbnail + Play  │   │Thumbnail + Play  │
+ │  Button Overlay  │   │  Button Overlay  │              │  Button Overlay  │   │  Button Overlay  │
+ └─────────┬────────┘   └─────────┬────────┘              └─────────┬────────┘   └─────────┬────────┘
+           │ (On Click)           │ (On Click)                      │ (On Click)           │ (On Click)
+           ▼                      ▼                                 ▼                      ▼
+ ┌──────────────────┐   ┌──────────────────┐              ┌──────────────────┐   ┌──────────────────┐
+ │ Inject RTÉ Bosco │   │ Inject HTML5     │              │ Inject YouTube   │   │ Inject Spotify   │
+ │ Iframe + postMsg │   │ <audio controls> │              │ 16:9 Iframe with │   │ Iframe (152px) + │
+ │  seekto & play   │   │ with #t=seconds  │              │ ?start=seconds   │   │ postMessage play │
+ └──────────────────┘   └──────────────────┘              └──────────────────┘   └──────────────────┘
 ```
 
 ### Engine 1: RTÉ Bosco Radio Player
@@ -80,6 +80,18 @@ The vanilla Zerostatic theme only supports standard written blog posts (`posts`)
   youtube_start_label: "0:02"
   ```
 * **Client Logic:** On click, injects a responsive 16:9 `.video-container` containing a YouTube iframe with `autoplay=1&rel=0&start={seconds}`.
+
+### Engine 4: Lazy Spotify Podcast Episode Embed
+* Used for podcast episodes hosted on Spotify (e.g., Times Higher Education podcast).
+* **Front Matter:**
+  ```yaml
+  spotify_id: "4xecXh378vRw2FN0vdcoes" # Extracted from open.spotify.com/episode/<id>
+  ```
+* **Client Logic & Learnings:**
+  * **1-Click Autoplay:** Spotify does not support an `autoplay=1` URL query parameter. On thumbnail click, the iframe is mounted with `src="https://open.spotify.com/embed/episode/{id}?utm_source=generator&theme=0"`. To autoplay without requiring a second click on the embedded player, `triggerPlay()` dispatches `{command: 'play'}` and `{command: 'toggle'}` via `postMessage`. Because Spotify scripts initialize asynchronously, messages are dispatched on `load` and retried at 400ms, 1000ms, and 1600ms.
+  * **Sizing & Container Centering:** The standard compact Spotify episode player has a fixed height of `152px`. Standard 16:9 video containers (~304px tall) leave an awkward white box below the player. Instead, `.card-thumbnail-spotify` provides a 16:9 dark `#111` container that flex-centers the `.spotify-player-container` (`iframe { height: 152px; width: 100%; border-radius: 12px; background: transparent; }`).
+* **Card Description Length Limit:**
+  * `.card-description p` in `_sass/theme/_custom.scss` uses `-webkit-line-clamp: 3; overflow-y: hidden;`. Raw show notes dumped into `description:` get cut off mid-sentence. Descriptions must always be written as a concise 2–3 line summary (~160–200 characters) focused on Rosalind's participation.
 
 ---
 
@@ -114,6 +126,7 @@ All templates in `_layouts/` and `_includes/` reference these flat paths.
 
 When developing or modifying this codebase:
 1. **For written articles:** Use `collections/_posts/` with `custom_url`.
-2. **For broadcast appearances:** Use `collections/_media/` with `rte_clip_id`, `audio_src`, or `youtube_id`.
+2. **For broadcast appearances:** Use `collections/_media/` with `rte_clip_id`, `audio_src`, `youtube_id`, or `spotify_id`.
 3. **For include calls:** Always use flat paths (`_includes/framework/<name>.html`).
 4. **For styling:** Put project overrides into [`_sass/theme/_custom.scss`](file:///Users/naivedyabansal/Antigravity/Repos/rosalindskillen.github.io/_sass/theme/_custom.scss).
+5. **For card copy:** Keep descriptions to 2–3 lines (~160–200 chars) to honor the `-webkit-line-clamp: 3` visual limit.

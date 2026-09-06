@@ -232,21 +232,30 @@ The homepage sorts posts by date by default and shows up to 9 cards. The card UR
 
 Media entries live in `collections/_media/` and render through the media page layouts.
 
-Current media entries:
+Current media entries (20 entries sorted reverse chronological):
 
-| Date | Title | Outlet | Link Type |
+| Date | Title | Outlet | Link / Player Type |
 | --- | --- | --- | --- |
-| 2021-11-03 | BBC Radio Ulster | BBC Radio Ulster | BBC programme link |
-| 2021-11-04 | Tedx Talks | Tedx Talks | YouTube |
-| 2022-10-26 | Keynote at Green Foundation Ireland conference | Green Foundation Ireland | YouTube |
-| 2023-05-31 | Green Foundation Ireland | Green Foundation Ireland | YouTube |
-| 2023-11-14 | Bridging The Atlantic | Bridging The Atlantic | YouTube |
+| 2026-09-03 | Times Higher Education | Times Higher Education | Spotify Episode Embed (`spotify_id`) |
+| 2026-08-05 | Times Higher Education | Times Higher Education | Spotify Episode Embed (`spotify_id`) |
+| 2026-05-01 | Newstalk Daily | Newstalk Daily | Native Audio Player (`audio_src`) |
+| 2026-04-10 | RTÉ Radio 1 | RTÉ Radio 1 | RTÉ Bosco Player (`rte_clip_id`) |
+| 2026-03-31 | Galway Bay FM | Galway Bay FM | Native Audio Player (`audio_src`) |
+| 2026-03-05 | Inside the Irish Farmers Journal | Irish Farmers Journal | Native Audio Player (`audio_src`) |
+| 2026-02-19 | Inside the Irish Farmers Journal | Irish Farmers Journal | Native Audio Player (`audio_src`) |
+| 2026-02-19 | Tipp FM | Tipp FM | Native Audio Player (`audio_src`) |
+| 2026-02-11 | RTÉ 2FM | RTÉ 2FM | RTÉ Bosco Player (`rte_clip_id`) |
+| 2026-01-18 | Beat 102 103 | Beat 102 103 | Native Audio Player (`audio_src`) |
+| 2026-01-10 | RTE 2FM | RTE 2FM | RTÉ Radio Link |
+| 2026-01-10 | Tipp FM | Tipp FM | Tipp FM Link |
+| 2025-12-08 | Ireland AM | Virgin Media | YouTube Video Embed (`youtube_id`) |
 | 2024-10-21 | Dublin Freelance Forum | Dublin Freelance Forum | External podcast page |
-| 2025-12-08 | Ireland AM | Virgin Media | YouTube |
-| 2026-01-10 | RTE 2FM | RTE 2FM | RTE radio link |
-| 2026-01-10 | Tipp FM | Tipp FM | Tipp FM link |
-| 2026-01-18 | Beat 102 103 | Beat 102 103 | External podcast link |
-| 2026-02-11 | RTE 2FM | RTE 2FM | RTE radio link |
+| 2023-11-14 | Bridging The Atlantic | Bridging The Atlantic | YouTube Video Embed (`youtube_id`) |
+| 2023-05-31 | Green Foundation Ireland | Green Foundation Ireland | YouTube Video Embed (`youtube_id`) |
+| 2022-10-26 | Keynote at Green Foundation Ireland conference | Green Foundation Ireland | YouTube Video Embed (`youtube_id`) |
+| 2022-09-30 | Belfast Telegraph | The BelTel | Native Audio Player (`audio_src`) |
+| 2021-11-04 | Tedx Talks | Tedx Talks | YouTube Video Embed (`youtube_id`) |
+| 2021-11-03 | BBC Radio Ulster | BBC Radio Ulster | BBC programme link |
 
 The active `pages/media.md` uses `layout: media-3`, which sorts `site.media` by date descending and renders two-column full cards.
 
@@ -619,13 +628,34 @@ Recommended front matter:
 ```yaml
 ---
 title: "Outlet or Event"
-description: "Short description of the appearance."
+description: "Short description of the appearance (keep to 2–3 lines / ~160–200 characters)."
 date: YYYY-MM-DD
 outlet: "Outlet Name"
 link: "https://external-url.example"
 thumbnail: "/assets/images/gen/media/example.jpg"
+
+# Choose one player type if applicable:
+# 1. RTÉ Bosco Player:
+# rte_clip_id: "11788820"
+# rte_start_seconds: 3331
+# rte_start_label: "55:31"
+
+# 2. Native Direct Audio:
+# audio_src: "https://audio-cdn.com/stream.mp3"
+# audio_start_seconds: 104
+# audio_start_label: "1:44"
+
+# 3. YouTube Embed:
+# youtube_id: "iq52zCD56lw"
+# youtube_start_seconds: 2
+# youtube_start_label: "0:02"
+
+# 4. Spotify Episode Embed:
+# spotify_id: "4xecXh378vRw2FN0vdcoes"
 ---
 ```
+
+> **Note on Descriptions:** `.card-description p` is styled with `-webkit-line-clamp: 3; overflow-y: hidden;`. Raw show notes or long descriptions will be truncated mid-sentence. Keep descriptions concise (2–3 lines, ~160–200 characters) emphasizing Rosalind's contribution.
 
 ### Change Navigation
 

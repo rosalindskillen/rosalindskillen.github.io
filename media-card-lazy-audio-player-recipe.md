@@ -85,10 +85,12 @@ _includes/theme/cards/card-post.html
 
 Lazy media cards are driven by extra front matter fields.
 
-There are two supported cases:
+There are four supported cases:
 
 1. RTÉ iframe player.
 2. Direct audio file, such as an MP3 from GoLoud.
+3. YouTube video embed.
+4. Spotify podcast episode embed.
 
 ### RTÉ Iframe Fields
 
@@ -169,6 +171,32 @@ player.addEventListener("loadedmetadata", function () {
   }
 }, { once: true });
 ```
+
+### Spotify Embed Fields
+
+Use these for Spotify podcast episodes:
+
+```yaml
+spotify_id: "4xecXh378vRw2FN0vdcoes"
+```
+
+Meaning:
+
+- `spotify_id`: The 22-character alphanumeric Spotify episode ID (found in URLs like `https://open.spotify.com/episode/4xecXh378vRw2FN0vdcoes`).
+
+The card renders the thumbnail and a play button overlay:
+
+```text
+Play Episode on Spotify
+```
+
+On click, it injects a centered dark-themed container with this iframe:
+
+```text
+https://open.spotify.com/embed/episode/4xecXh378vRw2FN0vdcoes?utm_source=generator&theme=0
+```
+
+And triggers 1-click playback via `postMessage` (`play` and `toggle` commands) on load and at staggered intervals (400ms, 1000ms, 1600ms).
 
 ## Current Specific Examples
 
@@ -283,6 +311,36 @@ Behavior:
 - Click keeps the thumbnail visible and overlays a native audio control bar near the bottom.
 - The audio player seeks to 25:08.
 
+### Times Higher Education: Spotify Embed
+
+File:
+
+```text
+collections/_media/2026-09-03-times-higher-education.md
+```
+
+Front matter:
+
+```yaml
+---
+title: "Times Higher Education"
+categories: ["Podcast", "Interview"]
+description: "Discussion on Asia's rising prominence in international student recruitment and higher education trends."
+date: 2026-09-03
+outlet: "Times Higher Education"
+link: "https://open.spotify.com/episode/4xecXh378vRw2FN0vdcoes"
+thumbnail: "/assets/images/gen/media/the_podcast.jpg"
+spotify_id: "4xecXh378vRw2FN0vdcoes"
+---
+```
+
+Behavior:
+
+- Shows `the_podcast.jpg`.
+- Button says `Play Episode on Spotify`.
+- Click replaces the thumbnail with a centered dark-themed box (`#111`) containing the 152px Spotify episode widget.
+- Fires `triggerPlay()` to dispatch `play` and `toggle` postMessages, ensuring immediate autoplay without an extra click.
+
 ## Layout Integration
 
 The media layouts pass item metadata into the shared card include.
@@ -301,6 +359,7 @@ In `_layouts/media-3.html`:
   audio_src=item.audio_src
   audio_start_seconds=item.audio_start_seconds
   audio_start_label=item.audio_start_label
+  spotify_id=item.spotify_id
   date=item.date
   show_read_more=false
   style="full"
@@ -322,6 +381,7 @@ In `_layouts/media.html`, keep the same optional fields:
   audio_src=item.audio_src
   audio_start_seconds=item.audio_start_seconds
   audio_start_label=item.audio_start_label
+  spotify_id=item.spotify_id
   date=item.date
   style="row"
 %}
@@ -335,13 +395,14 @@ The card include follows this priority:
 
 1. If `rte_clip_id` exists, render an RTÉ lazy iframe player.
 2. Else if `audio_src` exists, render a direct-audio lazy player.
-3. Else if `thumbnail` exists, render a normal linked thumbnail.
-4. Else if `youtube_id` exists, render YouTube embed behavior.
+3. Else if `spotify_id` exists, render a lazy Spotify episode player.
+4. Else if `thumbnail` exists, render a normal linked thumbnail.
+5. Else if `youtube_id` exists, render YouTube embed behavior.
 
 The top-level class also treats these as thumbnail cards:
 
 ```liquid
-<div class="card card-post card-{{ style }} {% if thumbnail or youtube_id or rte_clip_id or audio_src %}card-has-thumbnail{% endif %}">
+<div class="card card-post card-{{ style }} {% if thumbnail or youtube_id or rte_clip_id or audio_src or spotify_id %}card-has-thumbnail{% endif %}">
 ```
 
 ## RTÉ Lazy Iframe Pattern
@@ -439,6 +500,55 @@ player.addEventListener("loadedmetadata", function () {
 }, { once: true });
 ```
 
+## Spotify Lazy Iframe Pattern
+
+The Spotify branch starts as a thumbnail plus play button:
+
+```html
+<div class="card-thumbnail card-thumbnail-spotify">
+  <div class="spotify-lazy-player" data-spotify-id="4xecXh378vRw2FN0vdcoes">
+    <button class="spotify-lazy-button rte-lazy-button" type="button">
+      <img alt="Times Higher Education" src="/assets/images/gen/media/the_podcast.jpg">
+      <span>Play Episode on Spotify</span>
+    </button>
+  </div>
+</div>
+```
+
+On click, JavaScript creates the iframe and coordinates 1-click autoplay:
+
+```js
+const iframe = document.createElement("iframe");
+iframe.src = "https://open.spotify.com/embed/episode/" + encodeURIComponent(spotifyId) + "?utm_source=generator&theme=0";
+iframe.allow = "autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture";
+iframe.loading = "lazy";
+iframe.style.border = "none";
+
+const playerWrap = document.createElement("div");
+playerWrap.className = "spotify-player-container";
+playerWrap.appendChild(iframe);
+container.replaceChildren(playerWrap);
+
+// Spotify does not support autoplay=1 query parameter.
+// postMessage commands are used to initiate playback.
+const triggerPlay = () => {
+  if (iframe.contentWindow) {
+    iframe.contentWindow.postMessage({command: "play"}, "*");
+    iframe.contentWindow.postMessage({command: "toggle"}, "*");
+  }
+};
+
+iframe.addEventListener("load", () => {
+  triggerPlay();
+  setTimeout(triggerPlay, 400);
+  setTimeout(triggerPlay, 1000);
+  setTimeout(triggerPlay, 1600);
+});
+```
+
+### Why Retries Are Necessary for Spotify
+Spotify's embedded player script inside the iframe initializes asynchronously. If `postMessage` is dispatched only once upon the browser's native `load` event, Spotify's internal listeners may not yet be bound, causing the command to be dropped and requiring the visitor to click play a second time inside the iframe. Staggering retries at 400ms, 1000ms, and 1600ms ensures playback begins automatically across all connection speeds.
+
 ## Styling Pattern
 
 The SCSS belongs in:
@@ -453,10 +563,33 @@ The thumbnail wrappers need to behave like normal 16:9 media cards:
 
 ```scss
 .card-thumbnail-rte,
-.card-thumbnail-audio {
+.card-thumbnail-audio,
+.card-thumbnail-spotify {
   display: block;
   width: 100%;
   background: #111;
+}
+
+.card-thumbnail-spotify {
+  aspect-ratio: 16 / 9;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.spotify-player-container {
+  width: 100%;
+  height: 152px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  iframe {
+    width: 100%;
+    height: 152px;
+    border-radius: 12px;
+    background: transparent;
+  }
 }
 ```
 
@@ -551,7 +684,7 @@ collections/_media/
 
 ```yaml
 title: "Outlet Name"
-description: "Short description."
+description: "Short description (keep to 2–3 lines / ~160–200 chars to avoid CSS line clamp truncation)."
 date: YYYY-MM-DD
 outlet: "Outlet Name"
 link: "https://original-page.example"
@@ -576,6 +709,20 @@ audio_start_seconds: 1508
 audio_start_label: "25:08"
 ```
 
+For YouTube:
+
+```yaml
+youtube_id: "iq52zCD56lw"
+youtube_start_seconds: 2
+youtube_start_label: "0:02"
+```
+
+For Spotify:
+
+```yaml
+spotify_id: "4xecXh378vRw2FN0vdcoes"
+```
+
 4. Rebuild:
 
 ```sh
@@ -592,10 +739,13 @@ http://127.0.0.1:4000/media/
 
 - Do not hardcode a single media post into `_layouts/media-3.html`.
 - Do not edit `_site/assets/css/main.css` directly; it is generated.
+- Do not paste long paragraphs or raw distributor show notes into `description`; `.card-description p` enforces `-webkit-line-clamp: 3` and will truncate the text mid-sentence with an ellipsis (`...`).
+- Do not nest Spotify embeds inside standard `.video-container`; Spotify's compact player is 152px tall, so 16:9 containers cause a large blank white background. Always use `.spotify-player-container` inside `.card-thumbnail-spotify`.
+- Do not send only a single `postMessage` on iframe `load` for Spotify autoplay; Spotify's internal player script initializes asynchronously. Always dispatch retries (e.g., 400ms, 1000ms, 1600ms) to ensure true single-click playback.
 - Do not load third-party iframes immediately unless necessary.
 - Do not bypass third-party consent popups.
 - Do not use a normal webpage URL as `audio_src`; it must be a direct media file.
-- Do not add both `rte_clip_id` and `audio_src` to the same media post unless the card include is intentionally changed to handle that case.
+- Do not add multiple player types (`rte_clip_id`, `audio_src`, `youtube_id`, `spotify_id`) to the same media post unless the card include is intentionally changed to handle that case.
 
 ## Verification Checklist
 
@@ -608,13 +758,13 @@ rbenv exec bundle exec jekyll build
 Check the generated page for expected markers:
 
 ```sh
-rg -n "rte-lazy|audio-lazy|Play clip|Play RTÉ clip" _site/media/index.html
+rg -n "rte-lazy|audio-lazy|spotify-lazy|Play clip|Play RTÉ clip|Play Episode on Spotify" _site/media/index.html
 ```
 
 Check source media files:
 
 ```sh
-rg -n "rte_clip_id|audio_src" collections/_media
+rg -n "rte_clip_id|audio_src|youtube_id|spotify_id" collections/_media
 ```
 
 Check dimensions for new thumbnails:

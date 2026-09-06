@@ -146,7 +146,7 @@ Key custom styles in [`_sass/theme/_custom.scss`](file:///Users/naivedyabansal/A
 * Hero title typography and primary color underlines.
 * Desktop menu layout and hover styling.
 * Card styling: `.card-post`, `.card-row`, `.card-list`, `.card-full`.
-* Media player containers: `.video-container` (16:9 responsive aspect ratio) and `.rte-lazy-button` / `.audio-player-active` overlays.
+* Media player containers: `.video-container` (16:9 responsive aspect ratio), `.rte-lazy-button` / `.audio-player-active` overlays, and `.card-thumbnail-spotify` / `.spotify-player-container` (centered 152px iframe with dark theme styling).
 
 ---
 
@@ -186,7 +186,17 @@ Used for video interviews and conference keynotes.
   ```
 * **Mechanism:** On click, injects a responsive 16:9 iframe pointing to `https://www.youtube.com/embed/{id}?autoplay=1&rel=0&start={seconds}`.
 
-#### Case 4: Standard External Link
+#### Case 4: Spotify Podcast Episode Embed
+Used for Spotify podcast episodes (e.g., Times Higher Education podcast).
+* **Front Matter:**
+  ```yaml
+  spotify_id: "4xecXh378vRw2FN0vdcoes" # Extracted from open.spotify.com/episode/<id>
+  ```
+* **Mechanism & Learnings:**
+  * **Single-Click Autoplay:** Spotify iframes do not support an `autoplay=1` URL query parameter. On thumbnail click, an iframe pointing to `https://open.spotify.com/embed/episode/{id}?utm_source=generator&theme=0` is mounted. To achieve seamless 1-click playback without requiring a second click on Spotify's play button, a `triggerPlay()` helper dispatches `postMessage({command: 'play'}, '*')` and `postMessage({command: 'toggle'}, '*')`. Because Spotify's internal player script initializes asynchronously, `triggerPlay()` runs on the iframe `load` event and repeats at 400ms, 1000ms, and 1600ms retries.
+  * **Layout & Dark Theme Styling:** The native compact Spotify episode widget is 152px high. To avoid rendering a huge white canvas inside the standard 16:9 container, `.card-thumbnail-spotify` uses flex centering with a `#111` dark background and renders an iframe styled with `height: 152px; width: 100%; border-radius: 12px; background: transparent;`.
+
+#### Case 5: Standard External Link
 For text publications without media players:
 * **Front Matter:**
   ```yaml
@@ -260,8 +270,18 @@ For text publications without media players:
    # youtube_id: "xxxxxxxxxxx"
    # youtube_start_seconds: 30
    # youtube_start_label: "0:30"
+
+   # OR for Spotify Podcast Episode:
+   # spotify_id: "4xecXh378vRw2FN0vdcoes"
    ---
    ```
+
+> [!IMPORTANT]
+> **2–3 Line Description Rule (~160–200 characters):**
+> In [`_sass/theme/_custom.scss`](file:///Users/naivedyabansal/Antigravity/Repos/rosalindskillen.github.io/_sass/theme/_custom.scss), `.card-description p` is strictly clamped via `-webkit-line-clamp: 3` with `overflow-y: hidden`.
+> If lengthy show notes or multi-paragraph descriptions are pasted into `description:`, the browser forcefully cuts off the text mid-sentence with an ellipsis (`...`).
+> **Always write a concise 2–3 line summary (~160–200 characters)** focused on Rosalind's contribution rather than copying raw distributor show notes.
+
 3. Add thumbnail image to `assets/images/gen/media/`.
 
 ### Workflow C: Edit Homepage Text or Bio
