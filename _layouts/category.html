@@ -20,6 +20,11 @@ body_classes: page-category
   <div class="container">
     {% assign category = page.title %}
     {% for post in site.categories[category] %}
+      {% if post.custom_url %}
+        {% assign post_url = post.custom_url %}
+      {% else %}
+        {% assign post_url = post.url %}
+      {% endif %}
       <div class="row">
         <div class="col-12 col-md-8 mb-2">
           {% include theme/cards/card-post.html 
@@ -27,7 +32,8 @@ body_classes: page-category
             date=post.date
             description=post.description 
             thumbnail=post.thumbnail 
-            url=post.url 
+            url=post_url
+            custom_url=post.custom_url
             style="list"
           %}
         </div>

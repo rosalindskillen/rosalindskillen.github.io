@@ -30,12 +30,17 @@
     {% for card in cards limit: limit %}
       {% case collection %}
         {% when 'posts' %}
+          {% if card.custom_url %}
+            {% assign post_url = card.custom_url %}
+          {% else %}
+            {% assign post_url = card.url %}
+          {% endif %}
           <div class="col-12 col-md-6 {{ columns }} mb-gutter mt-gutter {% if forloop.first %}mt-0{% endif %} {% if forloop.last %}mb-0{% endif %} mt-md-0">
             {% include theme/cards/card-post.html
               title=card.title 
               thumbnail=card.thumbnail
-              
-              url=card.url 
+              url=post_url
+              custom_url=card.custom_url
             %}
           </div>
         {% when 'projects' %}

@@ -25,19 +25,25 @@ body_classes: page-blog page-blog-2
             {% assign posts = site.posts %}
             {% if paginator %}{% assign posts = paginator.posts %}{% endif %}
             
-              {% if paginator %}
+              {% if paginator and paginator.total_pages > 1 %}
                 <div class="col-12">
                   {% include framework/paginator-count.html %}
                 </div>
               {% endif %}
 
               {% for post in posts %}
+                {% if post.custom_url %}
+                  {% assign post_url = post.custom_url %}
+                {% else %}
+                  {% assign post_url = post.url %}
+                {% endif %}
                 <div class="col-12 col-lg-9 mb-5">
                   {% include theme/cards/card-post.html
                     title=post.title
                     description=post.description 
                     thumbnail=post.thumbnail 
-                    url=post.url
+                    url=post_url
+                    custom_url=post.custom_url
                     authors=post.authors
                     categories=post.categories
                     show_read_more=false
@@ -48,7 +54,7 @@ body_classes: page-blog page-blog-2
           </div>
         </div>
       </div>
-      {% if paginator %}
+      {% if paginator and paginator.total_pages > 1 %}
       <div class="row justify-content-center">
         <div class="col-auto">
           {% include framework/paginator.html %}

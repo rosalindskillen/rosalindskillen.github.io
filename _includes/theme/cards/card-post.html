@@ -3,7 +3,7 @@
 {% assign thumbnail = include.thumbnail %}
 {% assign icon = include.icon %}
 {% assign fa_icon = include.fa_icon %}
-{% assign url = include.url %}
+{% assign url = include.custom_url | default: include.url %}
 {% assign authors = include.authors %}
 {% assign categories = include.categories %}
 {% assign style = include.style | default: "column" %}

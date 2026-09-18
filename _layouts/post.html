@@ -3,8 +3,22 @@ layout: default
 body_classes: page-post page-post-1
 ---
 
+{% if page.custom_url %}
+<meta http-equiv="refresh" content="0; url={{ page.custom_url }}">
+<script>
+  window.location.replace("{{ page.custom_url }}");
+</script>
+{% endif %}
+
 <div class="section">
   <div class="container post-header">
+    {% if page.custom_url %}
+    <div class="row justify-content-center mb-3">
+      <div class="col-12 col-lg-8">
+        <p>Redirecting to <a href="{{ page.custom_url }}">{{ page.title }}</a>...</p>
+      </div>
+    </div>
+    {% endif %}
 
     <div class="row justify-content-center">
       <div class="col-12 col-lg-8">
