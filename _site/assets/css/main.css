@@ -14,6 +14,7 @@
   --color-base-text: #191a1a;
   --color-base-text-2: #555555;
   --color-header-text: #111827;
+  --color-logo-text: #191a1a;
   --logo-text-font-size: 28px;
   --logo-text-font-weight: 500;
   --menu-font-family: Open Sans, sans-serif;
@@ -13995,16 +13996,23 @@ html[data-bs-theme=dark] .highlight .gi {
   align-items: center;
 }
 .logos .logo .logo-image {
-  margin-right: 4px;
+  margin-right: 8px;
 }
 .logos .logo .logo-text {
   font-size: 26px;
+  white-space: nowrap;
   font-weight: 500;
   font-family: var(--font-family-logo);
   color: var(--color-logo-text);
 }
+@media (min-width: 576px) {
+  .logos .logo .logo-text {
+    font-size: 28px;
+  }
+}
 .logos .logo .logo-text a {
   color: var(--color-logo-text);
+  text-decoration: none;
 }
 .logos .logo-desktop {
   display: none;

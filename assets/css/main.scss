@@ -17,6 +17,7 @@
   --color-base-text: {{ site.colors.base_text | default: "#202020" }};
   --color-base-text-2: {{ site.colors.base_text_2 | default: "#4b5563" }};
   --color-header-text:  {{ site.colors.header_text | default: "#111827" }};
+  --color-logo-text: {{ site.colors.logo_text | default: "#191a1a" }};
   
   --logo-text-font-size: {{ site.logo.logo_text_font_size | default: "28px" }};
   --logo-text-font-weight: {{ site.logo.logo_text_font_weight | default: "500" }};

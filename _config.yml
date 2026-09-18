@@ -113,7 +113,7 @@ logo:
   logo_image_mobile_width: 28
   show_logo_image_on_mobile: true
   show_logo_image_on_desktop: true
-  show_logo_text_on_mobile: false
+  show_logo_text_on_mobile: true
   show_logo_text_on_desktop: true
 
 header: 

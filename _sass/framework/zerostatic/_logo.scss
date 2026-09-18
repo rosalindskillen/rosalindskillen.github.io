@@ -14,15 +14,20 @@
     justify-content: flex-start;
     align-items: center;
     .logo-image {
-      margin-right: 4px;
+      margin-right: 8px;
     }
     .logo-text {
       font-size: 26px;
+      white-space: nowrap;
       font-weight: 500;
       font-family: var(--font-family-logo);
       color: var(--color-logo-text);
+      @include media-breakpoint-up(sm) {
+        font-size: var(--logo-text-font-size, 28px);
+      }
       a {
         color: var(--color-logo-text);
+        text-decoration: none;
       }
     }
   }
